@@ -1,0 +1,25 @@
+{
+  "updated": "2026-08-11T15:43:58.704197+00:00",
+  "mode": "FULL GRID",
+  "grid_total": 12350,
+  "completed_before": 12111,
+  "ran_now": {
+    "ok": 251,
+    "failed": 0
+  },
+  "quick_parse_rate_pct": 91.63,
+  "tokens": {
+    "input": 50871,
+    "output": 391198
+  },
+  "models": [
+    "claude-haiku-4.5-thinking",
+    "claude-haiku-4.5",
+    "gpt-5.1-reasoning",
+    "deepseek-r1",
+    "deepseek-v3",
+    "qwen3-thinking",
+    "qwen3-instruct"
+  ],
+  "n_battery_items": 30
+}

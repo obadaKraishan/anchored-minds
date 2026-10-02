@@ -1,0 +1,15 @@
+======================================================================
+ ANCHORED MINDS -- RUN EXPERIMENTS
+ Timestamp : 2026-08-11T15:07:50.433008+00:00
+ Mode      : FULL GRID
+======================================================================
+
+ Grid size : 12,350 calls (12,111 already completed, 251 to run)
+
+======================================================================
+ RESULT: 251 ok, 0 failed | quick parse rate 91.6%
+ Tokens: 50,871 in / 391,198 out
+ [!] Parse rate below the 95% Day-2 gate -- inspect responses before scaling up.
+ Manifest -> 01_data_collection/outputs/raw_responses/run_manifest.json
+ Next step: python 02_data_processing/parse_responses.py
+======================================================================

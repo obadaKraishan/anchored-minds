@@ -1,0 +1,160 @@
+# =============================================================================
+# ANCHORED MINDS - Central Configuration
+# =============================================================================
+# Single source of truth for the entire pipeline. Every script reads this file.
+# Change a value here once and it propagates to collection, processing,
+# analysis, and cost estimation.
+#
+# Study: Does test-time reasoning immunize LLMs against human cognitive biases?
+# Target: IEEE CogMI 2026 (Round 2, deadline 2026-08-15)
+# =============================================================================
+
+project:
+  name: anchored-minds
+  seed: 42                        # global RNG seed (battery sampling, bootstrap)
+
+# -----------------------------------------------------------------------------
+# Paths (relative to repository root). Scripts resolve these automatically.
+# -----------------------------------------------------------------------------
+paths:
+  benchmark_raw: 01_data_collection/outputs/benchmark_raw.json
+  battery_dir: 01_data_collection/outputs/battery
+  raw_responses_dir: 01_data_collection/outputs/raw_responses
+  processing_dir: 02_data_processing/outputs
+  codebook_dir: 03_codebook/outputs
+  paper_dir: 05_paper_assets/outputs
+
+# -----------------------------------------------------------------------------
+# Experiment design
+# -----------------------------------------------------------------------------
+experiment:
+  n_items_per_bias: 5             # scenarios sampled per bias (frozen in battery)
+  n_samples_per_cell: 10          # repeated samples per item x condition x budget
+  temperature: 1.0                # sampling temperature (report in paper)
+  max_output_tokens: 1024         # cap on the visible answer (not the thinking)
+  request_timeout_s: 120
+  max_retries: 4
+  concurrency: 8                  # parallel in-flight requests
+  # Cost-estimation heuristics only (real usage is logged from API responses):
+  est_input_tokens: 400
+  est_output_tokens: 350
+
+# -----------------------------------------------------------------------------
+# Target biases.
+# Names must match the benchmark's bias labels (Malberg et al., arXiv:2410.15413).
+# download_benchmark.py prints ALL available labels; build_test_battery.py
+# matches these case-insensitively and fails loudly if a name is not found.
+# 6 theoretically-motivated picks: numeric-estimate biases (anchoring) +
+# choice-architecture biases (framing, decoy, sunk cost) + memory/belief
+# biases (availability, confirmation).
+# -----------------------------------------------------------------------------
+biases:
+  - Anchoring
+  - Framing Effect
+  - Decoy Effect
+  - Sunk Cost Fallacy
+  - Availability Heuristic
+  - Confirmation Bias
+
+# -----------------------------------------------------------------------------
+# Reasoning budgets (thinking-token ceilings).
+# 0 = no extended thinking (plain instruct behavior).
+# Reasoning-capable models run ALL budgets; non-reasoning models run only 0.
+# This asymmetry is handled automatically by run_experiments.py.
+# -----------------------------------------------------------------------------
+budgets: [0, 1024, 4096, 16384]
+
+# -----------------------------------------------------------------------------
+# Model panel.
+# provider: "openrouter" routes everything through one API/key (recommended
+#           for a solo 1-week study: one client, unified reasoning parameter).
+#           "anthropic" / "openai" native SDKs are also supported by the harness.
+# reasoning: true  -> supports a controllable thinking budget (gets all budgets)
+# reasoning: false -> instruct-only sibling (budget 0 only)
+# price_in / price_out: USD per 1M tokens -- PLACEHOLDERS, verify against the
+#           provider pricing page before Day 0 sign-off (cost_estimator warns).
+# pair: groups a reasoning model with its same-family non-reasoning sibling
+#           for the matched RQ1 comparison.
+# -----------------------------------------------------------------------------
+models:
+  # --- Anthropic pair -------------------------------------------------------
+  - name: claude-sonnet-4-thinking
+    provider: openrouter
+    model_id: anthropic/claude-sonnet-4
+    reasoning: true
+    pair: claude
+    price_in: 3.00
+    price_out: 15.00
+
+  - name: claude-sonnet-4
+    provider: openrouter
+    model_id: anthropic/claude-sonnet-4
+    reasoning: false
+    pair: claude
+    price_in: 3.00
+    price_out: 15.00
+
+  # --- OpenAI pair ----------------------------------------------------------
+  - name: gpt-5.1-reasoning
+    provider: openrouter
+    model_id: openai/gpt-5.1
+    reasoning: true
+    pair: openai
+    price_in: 1.25
+    price_out: 10.00
+
+  - name: gpt-5.1-chat
+    provider: openrouter
+    model_id: openai/gpt-5.1-chat
+    reasoning: false
+    pair: openai
+    price_in: 1.25
+    price_out: 10.00
+
+  # --- Open-weights pair (DeepSeek) ----------------------------------------
+  - name: deepseek-r1
+    provider: openrouter
+    model_id: deepseek/deepseek-r1
+    reasoning: true
+    pair: deepseek
+    price_in: 0.55
+    price_out: 2.19
+
+  - name: deepseek-v3
+    provider: openrouter
+    model_id: deepseek/deepseek-chat
+    reasoning: false
+    pair: deepseek
+    price_in: 0.27
+    price_out: 1.10
+
+  # --- Open-weights pair (Qwen) ---------------------------------------------
+  - name: qwen3-thinking
+    provider: openrouter
+    model_id: qwen/qwen3-235b-a22b-thinking
+    reasoning: true
+    pair: qwen
+    price_in: 0.30
+    price_out: 3.00
+
+  - name: qwen3-instruct
+    provider: openrouter
+    model_id: qwen/qwen3-235b-a22b
+    reasoning: false
+    pair: qwen
+    price_in: 0.20
+    price_out: 0.60
+
+# -----------------------------------------------------------------------------
+# Required environment variables per provider (checked by setup_check.py)
+# -----------------------------------------------------------------------------
+providers:
+  openrouter:
+    env_key: OPENROUTER_API_KEY
+    base_url: https://openrouter.ai/api/v1
+  anthropic:
+    env_key: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1
+  openai:
+    env_key: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1

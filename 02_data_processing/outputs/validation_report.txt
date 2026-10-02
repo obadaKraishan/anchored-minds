@@ -1,0 +1,40 @@
+======================================================================
+ ANCHORED MINDS -- VALIDATE DATASET
+ Timestamp : 2026-08-11T22:02:13.407098+00:00
+======================================================================
+
+[1/5] Grid completeness
+  [✓] claude-haiku-4.5-thinking      120/120 cells
+  [✓] claude-haiku-4.5               30/30 cells
+  [✓] gpt-5.1-reasoning              120/120 cells
+  [✓] deepseek-r1                    90/90 cells
+  [✓] deepseek-v3                    30/30 cells
+  [✓] qwen3-thinking                 90/90 cells
+  [✓] qwen3-instruct                 30/30 cells
+
+[2/5] Cell sizes (target >= 8/10 per condition)
+      5 undersized cells (1.0% of grid):
+        qwen3-instruct             b0      ANCH-001 (ctrl n=4, trt n=10)
+        qwen3-instruct             b0      ANCH-002 (ctrl n=6, trt n=2)
+        qwen3-instruct             b0      ANCH-004 (ctrl n=5, trt n=10)
+        qwen3-instruct             b0      ANCH-005 (ctrl n=3, trt n=10)
+        qwen3-instruct             b0      AVAI-002 (ctrl n=7, trt n=8)
+  [✓] no cell below 2 samples/condition (fatal threshold)
+  [✓] undersized cells <= 5% of grid  -- 1.0%
+      -> treated as WARNING; report exclusion rates in the paper's Method section
+
+[3/5] Value ranges
+  [✓] bias_score within [-1, +1]
+  [✓] answer means within option scale
+
+[4/5] Degenerate cells (informational)
+  [✓] 81/510 cells with zero variance in both conditions  -- deterministic answers; fine, noted for the paper
+
+[5/5] RQ4 coverage (verbalized condition on Anchoring)
+  [✓] Anchoring cells with verbalized score: 85/85
+
+======================================================================
+ RESULT: DATASET VALID ✓ -- master_scores.csv is FROZEN for analysis
+ Next steps: python 03_codebook/generate_codebook.py
+             python 04_analysis/rq1_reasoning_vs_bias/rq1_analysis.py
+======================================================================

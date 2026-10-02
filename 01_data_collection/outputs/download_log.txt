@@ -1,0 +1,60 @@
+======================================================================
+ ANCHORED MINDS -- BENCHMARK DOWNLOAD
+ Source    : hf.co/datasets/tum-nlp/cognitive-biases-in-llms
+ Timestamp : 2026-08-09T21:09:50.128151+00:00
+======================================================================
+
+[1/3] Downloading cognitive-biases-in-llms.csv from HuggingFace ...
+      Downloaded to HF cache: /Users/obadakraishan/.cache/huggingface/hub/datasets--tum-nlp--cognitive-biases-in-llms/snapshots/98fd1fd7728b320bb0690c51e72ca190191f2358/cognitive-biases-in-llms.csv
+      Loaded 30,000 rows, columns: ['bias', 'scenario', 'control', 'treatment', 'metric_params']
+      Cached -> 01_data_collection/outputs/benchmark_raw.json (62.0 MB)
+
+[2/3] Dataset summary
+      Total tests : 30,000
+      Biases      : 30
+      Scenarios   : 200
+
+      Items per bias:
+        Anchoring                          1,000  <-- TARGET
+        Anthropomorphism                   1,000
+        Availability Heuristic             1,000  <-- TARGET
+        Bandwagon Effect                   1,000
+        Confirmation Bias                  1,000  <-- TARGET
+        Conservatism                       1,000
+        Disposition Effect                 1,000
+        Endowment Effect                   1,000
+        Escalation Of Commitment           1,000  <-- TARGET
+        Framing Effect                     1,000  <-- TARGET
+        Fundamental Attribution Error      1,000
+        Halo Effect                        1,000
+        Hindsight Bias                     1,000
+        Hyperbolic Discounting             1,000
+        Illusion Of Control                1,000
+        In Group Bias                      1,000
+        Information Bias                   1,000
+        Loss Aversion                      1,000  <-- TARGET
+        Mental Accounting                  1,000
+        Negativity Bias                    1,000
+        Not Invented Here                  1,000
+        Optimism Bias                      1,000
+        Planning Fallacy                   1,000
+        Reactance                          1,000
+        Risk Compensation                  1,000
+        Self Serving Bias                  1,000
+        Social Desirability Bias           1,000
+        Status Quo Bias                    1,000
+        Stereotyping                       1,000
+        Survivorship Bias                  1,000
+
+[3/3] Validating config.yaml target biases against dataset
+      [✓] Anchoring
+      [✓] Framing Effect
+      [✓] Loss Aversion
+      [✓] Escalation Of Commitment
+      [✓] Availability Heuristic
+      [✓] Confirmation Bias
+
+======================================================================
+ RESULT: DOWNLOAD OK -- all target biases found ✓
+ Next step: python 01_data_collection/build_test_battery.py
+======================================================================

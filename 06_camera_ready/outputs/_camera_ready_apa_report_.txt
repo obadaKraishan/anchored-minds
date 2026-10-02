@@ -1,0 +1,84 @@
+============================================================================
+ ANCHORED MINDS -- CAMERA-READY RE-ANALYSIS
+============================================================================
+ master_scores.csv: 510 cells, columns: ['model', 'reasoning', 'pair', 'budget', 'item_id', 'bias', 'n_options', 'k', 'count_control', 'count_treatment', 'count_treatment_verbalized', 'mean_control', 'mean_treatment', 'mean_treatment_verbalized', 'std_control', 'std_treatment', 'std_treatment_verbalized', 'bias_score', 'bias_score_verbalized']
+ raw responses: 12350 calls; reasoning_tokens logged for 12350
+
+----------------------------------------------------------------------------
+ A. REALIZED REASONING TOKENS PER MODEL x REQUESTED BUDGET
+----------------------------------------------------------------------------
+
+ model                         budget    mean  median     max  >ceiling
+ claude-haiku-4.5                   0       0       0       0          
+ claude-haiku-4.5-thinking          0       0       0       0          
+ claude-haiku-4.5-thinking       1024     437     434     683        0%
+ claude-haiku-4.5-thinking       4096     575     574    1023        0%
+ claude-haiku-4.5-thinking       8192     620     604    1218        0%
+ deepseek-r1                        0    1188    1186    4983          
+ deepseek-r1                     1024    1555    1526    4579       79%
+ deepseek-r1                     4096    1605    1546    5507        0%
+ deepseek-r1                     8192    1617    1566    4101        0%
+ deepseek-v3                        0       0       0       0          
+ gpt-5.1-reasoning                  0       0       0       0          
+ gpt-5.1-reasoning               1024     116      85     948        0%
+ gpt-5.1-reasoning               4096     118      89     675        0%
+ gpt-5.1-reasoning               8192     118      90     715        0%
+ qwen3-instruct                     0       0       0       0          
+ qwen3-thinking                     0    1074    1014    5088          
+ qwen3-thinking                  1024    1321    1038    5621       52%
+ qwen3-thinking                  4096    1440    1054    5967        3%
+ qwen3-thinking                  8192    1436    1008    6109        0%
+
+----------------------------------------------------------------------------
+ RQ2 RE-RUN: bias magnitude on REALIZED reasoning tokens
+----------------------------------------------------------------------------
+
+ claude-haiku-4.5-thinking: realized tokens span 0 to 805 per cell
+   per-item OLS slope of |s| on log2(realized+1): mean = +0.0029, t(29) = 0.91, p = .372
+   mixed model |s|:  beta = +0.0029, p = .259
+   mixed model  s :  beta = -0.0059, p = .018
+
+ gpt-5.1-reasoning: realized tokens span 0 to 225 per cell
+   per-item OLS slope of |s| on log2(realized+1): mean = +0.0081, t(29) = 1.36, p = .184
+   mixed model |s|:  beta = +0.0084, p = .018
+   mixed model  s :  beta = -0.0104, p = .010
+
+ deepseek-r1: realized tokens span 707 to 2807 per cell
+   per-item OLS slope of |s| on log2(realized+1): mean = -0.1428, t(29) = -1.63, p = .114
+   mixed model |s|:  beta = +0.0030, p = .958
+   mixed model  s :  beta = -0.0179, p = .776
+
+ qwen3-thinking: realized tokens span 534 to 3440 per cell
+   per-item OLS slope of |s| on log2(realized+1): mean = +0.0266, t(29) = 0.25, p = .805
+   mixed model |s|:  beta = -0.0657, p = .213
+   mixed model  s :  beta = +0.0933, p = .075
+
+----------------------------------------------------------------------------
+ RQ1 RE-RUN: item-level pooled contrast (30 independent pairs)
+----------------------------------------------------------------------------
+
+ family       n     diff       t   df       p  p_holm     dz
+ claude      30   +0.028    1.00   29   0.325   0.714   0.18
+ deepseek    30   +0.026    1.20   29   0.238   0.714   0.22
+ openai      30   +0.056    1.40   29   0.171   0.686   0.26
+ qwen        30   +0.015    0.45   29   0.654   0.714   0.08
+
+ POOLED, one mean difference per item (n = 30 items, each the average over 30-4 families):
+   Delta = +0.031, 95% bootstrap CI [-0.010, +0.074], t(29) = 1.45, p = .158, dz = 0.26; Wilcoxon p = .280
+   mixed model intercept (random item): beta = +0.0313, z = 1.45, p = .148
+
+----------------------------------------------------------------------------
+ RQ3 RE-RUN: signed score vs 0 per bias, mixed model with random item intercept
+----------------------------------------------------------------------------
+
+ bias                             M                  CI       z   p_holm      d  class
+ Anchoring                   +0.163  [+0.111, +0.215]    5.02    0.000   1.89  Present
+ Availability Heuristic      -0.035  [-0.068, +0.005]   -1.71    0.111  -0.42  Absent
+ Confirmation Bias           -0.139  [-0.249, -0.043]   -2.38    0.051  -0.65  Absent
+ Escalation Of Commitment    -0.070  [-0.119, -0.031]   -2.79    0.021  -0.68  Reversed
+ Framing Effect              -0.336  [-0.403, -0.245]   -7.57    0.000  -2.35  Reversed
+ Loss Aversion               -0.586  [-0.914, +0.031]   -1.91    0.111  -0.88  Absent
+
+============================================================================
+ Report saved -> 06_camera_ready/outputs/_camera_ready_apa_report_.txt
+============================================================================

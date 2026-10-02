@@ -1,0 +1,33 @@
+==========================================================================
+ RQ4 -- FORCED ANCHOR VERBALIZATION AND SUSCEPTIBILITY (Anchoring)
+ Generated: 2026-08-12T00:05:56.828743+00:00
+==========================================================================
+
+ Cells with both conditions: 85 (models: 7, budgets incl.)
+
+model                      M_standard  M_verbalized  diff    t      df  p       p_holm   dz     n cells  
+---------------------------------------------------------------------------------------------------------
+claude-haiku-4.5           0.200       0.132         -0.068  -4.35  4   = .012  = .073   -1.95  5        
+claude-haiku-4.5-thinking  0.179       0.173         -0.006  -0.59  19  = .561  = 1.000  -0.13  20       
+deepseek-r1                0.147       0.119         -0.028  -3.35  14  = .005  = .033   -0.87  15       
+deepseek-v3                0.184       0.216         0.032   3.30   4   = .030  = .150   1.48   5        
+gpt-5.1-reasoning          0.181       0.170         -0.011  -1.62  19  = .122  = .489   -0.36  20       
+qwen3-instruct             0.168       0.187         0.018   0.58   4   = .591  = 1.000  0.26   5        
+qwen3-thinking             0.112       0.083         -0.029  -1.45  14  = .168  = .504   -0.38  15       
+
+APA sentences:
+  (positive difference = verbalization INCREASES anchoring; negative = decreases)
+  claude-haiku-4.5 (verbalized - standard): mean difference = -0.068 (95% bootstrap CI [-0.096, -0.042]), t(4) = -4.35, p = .012, Cohen's dz = -1.95; Wilcoxon W = 0.0, p = .062 (n = 5 items, significant at alpha = .05).
+  claude-haiku-4.5-thinking (verbalized - standard): mean difference = -0.006 (95% bootstrap CI [-0.027, 0.012]), t(19) = -0.59, p = .561, Cohen's dz = -0.13; Wilcoxon W = 71.0, p = .794 (n = 20 items, not significant at alpha = .05).
+  deepseek-r1 (verbalized - standard): mean difference = -0.028 (95% bootstrap CI [-0.044, -0.013]), t(14) = -3.35, p = .005, Cohen's dz = -0.87; Wilcoxon W = 9.0, p = .006 (n = 15 items, significant at alpha = .05).
+  deepseek-v3 (verbalized - standard): mean difference = 0.032 (95% bootstrap CI [0.014, 0.048]), t(4) = 3.30, p = .030, Cohen's dz = 1.48; Wilcoxon W = 0.0, p = .068 (n = 5 items, significant at alpha = .05).
+  gpt-5.1-reasoning (verbalized - standard): mean difference = -0.011 (95% bootstrap CI [-0.025, 0.001]), t(19) = -1.62, p = .122, Cohen's dz = -0.36; Wilcoxon W = 24.0, p = .133 (n = 20 items, not significant at alpha = .05).
+  qwen3-instruct (verbalized - standard): mean difference = 0.018 (95% bootstrap CI [-0.029, 0.084]), t(4) = 0.58, p = .591, Cohen's dz = 0.26; Wilcoxon W = 1.0, p = .655 (n = 5 items, not significant at alpha = .05).
+  qwen3-thinking (verbalized - standard): mean difference = -0.029 (95% bootstrap CI [-0.068, 0.006]), t(14) = -1.45, p = .168, Cohen's dz = -0.38; Wilcoxon W = 45.0, p = .421 (n = 15 items, not significant at alpha = .05).
+  POOLED across models x budgets x items (verbalized - standard): mean difference = -0.015 (95% bootstrap CI [-0.026, -0.004]), t(84) = -2.72, p = .008, Cohen's dz = -0.30; Wilcoxon W = 808.5, p = .011 (n = 85 items, significant at alpha = .05).
+
+ Verbalization effect by budget (pooled over reasoning models):
+   b0      M diff = -0.030  (n = 10 cells)
+   b1024   M diff = -0.016  (n = 20 cells)
+   b4096   M diff = -0.024  (n = 20 cells)
+   b8192   M diff = -0.005  (n = 20 cells)

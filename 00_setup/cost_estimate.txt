@@ -1,0 +1,18 @@
+ANCHORED MINDS -- COST ESTIMATE (2026-08-09T21:12:36.535768+00:00)
+Design grid: 6 biases x 5 items x 2 conditions x 10 samples/cell
+Budgets: [0, 1024, 4096, 8192]; thinking utilization 60%
+
+model                              calls   est_cost_usd
+claude-haiku-4.5-thinking          2,400          29.12
+claude-haiku-4.5                     600           1.29
+gpt-5.1-reasoning                  2,400          57.52
+gpt-5.1-chat                         600           2.40
+deepseek-r1                        2,400          12.86
+deepseek-v3                          600           0.30
+qwen3-thinking                     2,400          17.18
+qwen3-instruct                       600           0.17
+
+TOTAL calls: 12,000
+TOTAL est. cost: $120.85
+
+! Prices in config.yaml are PLACEHOLDERS -- verify against provider pricing pages before Day 0 sign-off.

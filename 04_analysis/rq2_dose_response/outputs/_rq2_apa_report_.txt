@@ -1,0 +1,37 @@
+==========================================================================
+ RQ2 -- DOSE-RESPONSE: BIAS vs REASONING BUDGET
+ Generated: 2026-08-11T23:49:17.753826+00:00
+==========================================================================
+
+ Budget coding: linear trend uses log2(budget+1); Spearman uses budget rank.
+ Models that cannot disable thinking contribute budgets > 0 only (by design).
+
+--- Measure: magnitude |bias| ---
+
+model                      budgets                rho     p_rho   slope/log2  t(items)  p_slope  mixedLM beta  p_LMM   
+-----------------------------------------------------------------------------------------------------------------------
+claude-haiku-4.5-thinking  [0, 1024, 4096, 8192]  -0.047  = .609  0.0017      0.72      = .477   0.0017        = .390  
+deepseek-r1                [1024, 4096, 8192]     -0.016  = .879  -0.0011     -0.28     = .778   -0.0011       = .788  
+gpt-5.1-reasoning          [0, 1024, 4096, 8192]  0.103   = .264  0.0049      1.48      = .150   0.0049        = .015  
+qwen3-thinking             [1024, 4096, 8192]     -0.001  = .994  -0.0001     -0.02     = .987   -0.0001       = .984  
+
+APA sentences:
+  For claude-haiku-4.5-thinking, magnitude |bias| non-significantly increased with reasoning budget: per-item linear slope on log2(budget+1) M = 0.0017 (95% CI [-0.0025, 0.0064]), t(29) = 0.72, p = .477; Spearman rho = -0.047, p = .609; mixed-effects beta = 0.0017, p = .390.
+  For deepseek-r1, magnitude |bias| non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0011 (95% CI [-0.0078, 0.0063]), t(29) = -0.28, p = .778; Spearman rho = -0.016, p = .879; mixed-effects beta = -0.0011, p = .788.
+  For gpt-5.1-reasoning, magnitude |bias| non-significantly increased with reasoning budget: per-item linear slope on log2(budget+1) M = 0.0049 (95% CI [-0.0009, 0.0117]), t(29) = 1.48, p = .150; Spearman rho = 0.103, p = .264; mixed-effects beta = 0.0049, p = .015.
+  For qwen3-thinking, magnitude |bias| non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0001 (95% CI [-0.0118, 0.0142]), t(29) = -0.02, p = .987; Spearman rho = -0.001, p = .994; mixed-effects beta = -0.0001, p = .984.
+
+--- Measure: signed bias ---
+
+model                      budgets                rho     p_rho   slope/log2  t(items)  p_slope  mixedLM beta  p_LMM   
+-----------------------------------------------------------------------------------------------------------------------
+claude-haiku-4.5-thinking  [0, 1024, 4096, 8192]  -0.005  = .956  -0.0039     -1.75     = .091   -0.0039       = .043  
+deepseek-r1                [1024, 4096, 8192]     -0.009  = .934  -0.0011     -0.29     = .777   -0.0011       = .785  
+gpt-5.1-reasoning          [0, 1024, 4096, 8192]  -0.096  = .296  -0.0062     -1.62     = .115   -0.0062       = .007  
+qwen3-thinking             [1024, 4096, 8192]     0.001   = .996  -0.0035     -0.53     = .597   -0.0035       = .519  
+
+APA sentences:
+  For claude-haiku-4.5-thinking, signed bias non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0039 (95% CI [-0.0084, 0.0003]), t(29) = -1.75, p = .091; Spearman rho = -0.005, p = .956; mixed-effects beta = -0.0039, p = .043.
+  For deepseek-r1, signed bias non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0011 (95% CI [-0.0090, 0.0062]), t(29) = -0.29, p = .777; Spearman rho = -0.009, p = .934; mixed-effects beta = -0.0011, p = .785.
+  For gpt-5.1-reasoning, signed bias non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0062 (95% CI [-0.0142, 0.0002]), t(29) = -1.62, p = .115; Spearman rho = -0.096, p = .296; mixed-effects beta = -0.0062, p = .007.
+  For qwen3-thinking, signed bias non-significantly decreased with reasoning budget: per-item linear slope on log2(budget+1) M = -0.0035 (95% CI [-0.0174, 0.0079]), t(29) = -0.53, p = .597; Spearman rho = 0.001, p = .996; mixed-effects beta = -0.0035, p = .519.

@@ -1,0 +1,61 @@
+======================================================================
+ ANCHORED MINDS -- SETUP CHECK
+ Repo root : /Users/obadakraishan/Desktop/IEEE-CogMI-2026/anchored-minds
+ Timestamp : 2026-08-09T20:52:55.249034+00:00
+======================================================================
+
+[1/5] Python & packages
+  [✓] Python >= 3.10 (found 3.12.2)
+  [✓] import yaml
+  [✓] import dotenv
+  [✓] import httpx
+  [✓] import pandas
+  [✓] import numpy
+  [✓] import scipy
+  [✓] import statsmodels
+  [✓] import matplotlib
+  [✓] import tqdm
+
+[2/5] config.yaml
+  [✓] config.yaml exists
+  [✓] config.yaml parses
+  [✓] section 'project' present
+  [✓] section 'paths' present
+  [✓] section 'experiment' present
+  [✓] section 'biases' present
+  [✓] section 'budgets' present
+  [✓] section 'models' present
+  [✓] section 'providers' present
+      -> 8 models configured (4 reasoning, 4 non-reasoning)
+      -> 6 biases | budgets: [0, 1024, 4096, 16384]
+  [✓] model 'claude-sonnet-4-thinking' -> provider 'openrouter' configured
+  [✓] model 'claude-sonnet-4' -> provider 'openrouter' configured
+  [✓] model 'gpt-5.1-reasoning' -> provider 'openrouter' configured
+  [✓] model 'gpt-5.1-chat' -> provider 'openrouter' configured
+  [✓] model 'deepseek-r1' -> provider 'openrouter' configured
+  [✓] model 'deepseek-v3' -> provider 'openrouter' configured
+  [✓] model 'qwen3-thinking' -> provider 'openrouter' configured
+  [✓] model 'qwen3-instruct' -> provider 'openrouter' configured
+
+[3/5] Environment / API keys
+  [✓] .env file found and loaded
+  [✓] OPENROUTER_API_KEY set (openrouter)  -- sk-or-v1...40a4
+
+[4/5] Directory structure
+  [✓] 01_data_collection/outputs/battery/
+  [✓] 01_data_collection/outputs/raw_responses/
+  [✓] 02_data_processing/outputs/
+  [✓] 03_codebook/outputs/
+  [✓] 04_analysis/rq1_reasoning_vs_bias/outputs/figures/
+  [✓] 04_analysis/rq2_dose_response/outputs/figures/
+  [✓] 04_analysis/rq3_bias_taxonomy/outputs/figures/
+  [✓] 04_analysis/rq4_verbalization/outputs/figures/
+  [✓] 05_paper_assets/outputs/
+
+[5/5] Live API pings
+  [✓] ping openrouter  -- HTTP 200
+
+======================================================================
+ RESULT: ALL CHECKS PASSED ✓
+ Next step: python 00_setup/cost_estimator.py
+======================================================================

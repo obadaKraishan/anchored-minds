@@ -1,0 +1,244 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{The Long Road to the Same Answer: Cognitive Bias Under Escalating Reasoning Budgets in Large Language Models}
+
+\author{\IEEEauthorblockN{Anonymous Author(s)}
+\IEEEauthorblockA{Anonymous Institution \\
+Submission to IEEE CogMI 2026, Research Track}}
+
+\maketitle
+
+\begin{abstract}
+Reasoning models allocate extra computation at inference time and present their answers as the product of deliberate thought. If this deliberation works the way dual-process accounts of human cognition suggest, longer thinking should weaken the classic decision biases that fast, intuitive judgment produces. We test that prediction directly. Using 30 vignettes covering six biases (anchoring, framing, loss aversion, escalation of commitment, availability, confirmation) drawn from an established benchmark, we run a controlled dose-response study across four model families, pairing each reasoning model with a matched non-reasoning sibling and varying the thinking budget over four levels (0, 1,024, 4,096, and 8,192 tokens), for 12,350 API calls in total. Three results stand out. First, reasoning models are not less biased than their siblings; pooled across families, their bias magnitude is slightly higher ($\Delta = +0.031$, $t(119) = 2.00$, $p = .048$, $d_z = 0.18$). Second, bias does not fall as the budget grows: per-item slopes are flat in every model, so thinking budget does not act as a debiasing control. Third, the bias landscape itself is inverted relative to humans. Anchoring is the only bias that appears in the human direction ($d = 1.89$); the other five are reversed, with models shifting against the direction that prospect theory predicts for people ($|d| = 0.42$--$2.35$, all Holm-corrected $p < .001$). A one-line prompt that asks the model to restate the anchor before answering reduces anchoring ($p = .008$), an intervention that outperforms any amount of additional thinking in our data. The results argue against treating test-time reasoning as a rationality guarantee and for auditing deployed models bias by bias.
+\end{abstract}
+
+\begin{IEEEkeywords}
+cognitive bias, large language models, test-time compute, reasoning models, dual-process theory, anchoring, psychometric evaluation
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Reasoning models such as OpenAI's o-series, DeepSeek-R1, and the thinking variants of Claude and Qwen spend a controllable budget of tokens on an internal deliberation phase before committing to an answer \cite{jaech2024openai, guo2025deepseek, yang2025qwen3}. The appeal is intuitive: a system that thinks longer should decide better, and test-time compute has in fact improved performance on mathematics, coding, and other verifiable tasks \cite{snell2024scaling, muennighoff2025s1}. These models are now placed in decision support, where the questions are not math problems but judgment calls: estimates, trade-offs, and choices between framed options. Whether extra thinking helps there is a different question, and it is the one this paper asks.
+
+The question has a natural home in dual-process theory. In the human literature, biases such as anchoring and framing are attributed to fast, associative processing, and deliberate reasoning is the mechanism that can override them \cite{tversky1974judgment, evans2013dual}. The analogy between a reasoning trace and this deliberative mode is common in discussions of test-time compute, and it makes a concrete, falsifiable prediction: if the analogy holds, bias should shrink as the thinking budget grows. To our reading, this dose-response prediction has not been tested under controlled conditions, although its ingredients exist. Benchmarks now document a wide range of cognitive biases in language models \cite{malberg2024comprehensive, echterhoff2024cognitive, binz2023using}, and separate work studies how reasoning traces relate to model behavior \cite{turpin2023language, chen2025reasoning}. What is missing is a design that holds the stimuli fixed, pairs reasoning models with matched non-reasoning siblings, and varies the budget as an experimental factor.
+
+The answer matters for practice. If budget reduces bias, allocating compute becomes a documented mitigation with a measurable cost-benefit curve. If it does not, then the trust that a longer visible deliberation invites is not backed by better judgment, and bias mitigation has to come from somewhere else. Either outcome changes how a deployed system should be configured; neither can be assumed from capability benchmarks.
+
+We therefore run a dose-response study. From the 30,000-test benchmark of Malberg et al.~\cite{malberg2024comprehensive} we freeze a battery of 30 decision vignettes covering six biases with distinct theoretical roots: anchoring \cite{tversky1974judgment}, the framing effect \cite{tversky1981framing}, loss aversion \cite{kahneman1979prospect}, escalation of commitment \cite{staw1976kneedeep}, the availability heuristic \cite{tversky1973availability}, and confirmation bias \cite{nickerson1998confirmation}. Each vignette exists in a control and a bias-manipulated version, and every response is a choice on a fixed ordinal scale, which yields a bounded, direction-aware bias score. We administer the battery to seven models from four families (Anthropic, OpenAI, DeepSeek, Qwen), crossing each reasoning model with thinking budgets of 0, 1,024, 4,096, and 8,192 tokens and sampling each cell ten times, for 12,350 calls. A fourth condition on the anchoring items forces the model to restate the anchor before answering.
+
+The paper makes four contributions:
+\begin{itemize}
+\item a controlled dose-response design for bias in reasoning models, with matched reasoning/non-reasoning pairs in four model families and thinking budget as a manipulated factor;
+\item evidence that reasoning does not confer resistance: bias magnitude is slightly higher for reasoning models pooled across families, and no model shows a declining budget slope;
+\item a presence-versus-reversal taxonomy showing that only anchoring survives in the human direction while five classic biases run backwards in every model tested;
+\item a practical observation: forcing the model to verbalize the anchor lowers anchoring more reliably than any budget increase, at the cost of one prompt line.
+\end{itemize}
+We release the frozen battery, collection harness, scored dataset, and analysis code for reproduction.\footnote{Repository link withheld for double-blind review; materials will be released upon acceptance.}
+
+\section{Related Work}
+
+This section situates the study in three lines of work: measurements of cognitive bias in language models, the test-time reasoning paradigm, and analyses of what reasoning traces actually do.
+
+\subsection{Cognitive biases in language models}
+Behavioral experiments borrowed from psychology have become a standard instrument for studying language models. Binz and Schulz probed GPT-3 with classic vignettes and found several human-like errors \cite{binz2023using}. Hagendorff et al.\ reported that intuitive biases present in earlier GPT models weakened or vanished in ChatGPT, an early sign that alignment training reshapes bias profiles \cite{hagendorff2023human}. Itzhak et al.\ showed the complementary effect: instruction tuning can also introduce biases that the base model lacked \cite{itzhak2024instructed}. Larger inventories followed. Echterhoff et al.\ measured biases in managerial decision scenarios \cite{echterhoff2024cognitive}, and Malberg et al.\ built the benchmark used here, 30 biases instantiated in 200 scenarios and validated across 20 models \cite{malberg2024comprehensive}. Related strands document social forms of bias pressure, including sycophancy \cite{sharma2024towards, fanous2025syceval} and biases that emerge at the population level when model agents interact \cite{ashery2025emergent}. This literature establishes that biases can be measured, but it treats each model as a fixed object; the amount of inference-time deliberation is not manipulated.
+
+\subsection{Test-time reasoning}
+Chain-of-thought prompting first showed that eliciting intermediate steps improves accuracy \cite{wei2022chain}. Current reasoning models internalize the idea: they are trained to produce an extended thinking phase whose length can be capped by the caller \cite{jaech2024openai, guo2025deepseek, yang2025qwen3}, and allocating more of this test-time compute can beat scaling parameters on verifiable tasks \cite{snell2024scaling, muennighoff2025s1}. The controllable budget is what makes the present study possible: it turns deliberation into an independent variable rather than a model property.
+
+\subsection{What reasoning traces do}
+A separate line of work cautions against reading the trace as the computation. Turpin et al.\ showed that chain-of-thought explanations can rationalize answers driven by cues the text never mentions \cite{turpin2023language}, and Chen et al.\ found the same pattern inside reasoning models, which verbalize the hints that moved them only a minority of the time \cite{chen2025reasoning}. Shojaee et al.\ documented reasoning effort that collapses precisely where problems get hard \cite{shojaee2025illusion}. These results question the deliberation analogy from the inside, by inspecting traces. We question it from the outside, by testing its behavioral prediction: whatever the trace contains, more of it should produce less bias if it functions as System-2 deliberation. The two approaches are complementary, and our results agree with theirs.
+
+\section{Study Design}
+
+This section describes the research questions, the stimulus battery, the model panel, the experimental conditions, the bias metric, and the collection procedure with its data-quality checks.
+
+\subsection{Research questions}
+The study is organized around four questions, fixed before data collection.
+\begin{itemize}
+\item \textbf{RQ1.} Do reasoning models show smaller bias magnitudes than matched non-reasoning models of the same family?
+\item \textbf{RQ2.} Does bias decrease as the reasoning budget grows?
+\item \textbf{RQ3.} Which of the six biases are present in the human direction, absent, or reversed, and which respond to budget?
+\item \textbf{RQ4.} Does forcing the model to verbalize the anchor change anchoring susceptibility?
+\end{itemize}
+
+\subsection{Benchmark and battery}
+Stimuli come from the cognitive-bias benchmark of Malberg et al.~\cite{malberg2024comprehensive}, which instantiates each bias as paired prompts: a control version of a managerial decision scenario and a treatment version containing the bias manipulation, both answered on a fixed ordinal scale presented as numbered options. We selected six biases on theoretical grounds, covering numeric estimation (anchoring), choice architecture (framing, loss aversion, escalation of commitment), and belief-driven judgment (availability, confirmation). For each bias we sampled five items from distinct scenarios with a fixed seed (42) and froze the resulting 30-item battery before any experimental call was made; the battery did not change afterwards. Ten items use a 7-point scale and twenty use an 11-point scale. Each benchmark item carries a direction parameter $k \in \{-1, +1\}$ and, where applicable, a scale-reversal flag for the treatment prompt, which we apply as specified so that positive scores always mean movement in the direction the bias predicts for humans.
+
+\subsection{Model panel}
+Table~\ref{tab:design} lists the panel: seven models from four families, chosen to span capability tiers and open versus closed weights while keeping a matched reasoning/non-reasoning pair inside each family. All calls were routed through a single API gateway (OpenRouter) so that the reasoning budget could be set with one uniform parameter. Two properties of the panel required design decisions. For the OpenAI family no separate non-reasoning sibling of GPT-5.1 was available, so the comparator is the same model at budget~0 with thinking disabled, which holds the weights constant and toggles only deliberation. DeepSeek-R1 and the Qwen3 thinking variant cannot disable thinking at all: requests to turn it off were rejected or ignored, and at a zero budget the models thought anyway until the token ceiling cut them off. We therefore treat budget~0 as undefined for these two models and use their instruct siblings (DeepSeek-V3, Qwen3-Instruct) as the family zero points, which is what the paired design was built for. We flag this constraint because it is easy to miss: for R1-style models a ``no-thinking'' condition does not exist.
+
+\begin{table}[t]
+\centering
+\caption{Model panel and design cells per model. Budgets are extended-thinking token ceilings.}
+\label{tab:design}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lllll}
+\hline
+Model & Family & Type & Budgets & Cells \\
+\hline
+claude-haiku-4.5-thinking & claude & reasoning & 0, 1k, 4k, 8k & 120 \\
+claude-haiku-4.5 & claude & instruct & 0 & 30 \\
+gpt-5.1-reasoning & openai & reasoning & 0, 1k, 4k, 8k & 120 \\
+deepseek-r1 & deepseek & no-disable & 1k, 4k, 8k & 90 \\
+deepseek-v3 & deepseek & instruct & 0 & 30 \\
+qwen3-thinking & qwen & no-disable & 1k, 4k, 8k & 90 \\
+qwen3-instruct & qwen & instruct & 0 & 30 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize ``no-disable'' models cannot switch thinking off; their instruct siblings provide the family's budget-0 point.
+\end{table}
+
+\subsection{Conditions and budget manipulation}
+Every battery item was administered in a control and a treatment condition. Anchoring items received a third condition for RQ4: the treatment prompt plus one instruction to restate every number mentioned in the prompt before answering. All prompts ended with a fixed answer-format instruction (``Answer: Option $\langle$number$\rangle$''). Reasoning models ran at budgets of 0, 1,024, 4,096, and 8,192 thinking tokens (the two no-disable models at the three positive budgets); instruct models ran at budget 0 only. Each model $\times$ budget $\times$ item $\times$ condition cell was sampled ten times at temperature 1.0, giving 12,350 calls in total. Requests used asynchronous collection with retry and checkpointing; the token ceiling for thinking calls reserved a fixed answer allowance on top of the budget, which a pilot showed was necessary to keep long deliberations from truncating the visible answer.
+
+\subsection{Bias metric}
+Let $\mu_C$ and $\mu_T$ be the mean chosen option index across the ten samples of a cell's control and treatment condition, on a scale with $n$ options, after applying the benchmark's treatment-scale reversal where flagged. The cell's bias score is
+\begin{equation}
+s \;=\; k \cdot \frac{\mu_T - \mu_C}{\,n - 1\,} \;\in\; [-1,\, +1],
+\label{eq:score}
+\end{equation}
+where $k$ is the benchmark's direction parameter. A positive $s$ means the treatment moved the model in the direction the bias predicts for humans; a negative $s$ means it moved the model the opposite way. We analyze $s$ (signed) and $|s|$ (magnitude, i.e., susceptibility regardless of direction). The verbalized condition yields an analogous score $s_v$ against the same control.
+
+\subsection{Procedure and data quality}
+All 12,350 calls completed without API failures. Answers were extracted with a tiered, range-aware parser (strict format first, then boxed and free-text patterns, all restricted to the item's option range so that echoed stimulus numbers cannot be mistaken for answers). On analyzable data the parse rate was 99.4\%, at or near 100\% for five of the seven models. Two exclusions are documented rather than repaired. First, the budget-0 responses of the two no-disable models are excluded by design as described above; within those excluded cells the models' forced thinking frequently exhausted the token ceiling, which is itself evidence that the condition is ill-defined. Second, Qwen3-Instruct answered 7.2\% of its responses, mostly anchoring estimation items, with a raw quantity (for example, a percentage) instead of an option index; these responses were excluded, leaving five of its 65 cells below eight samples but every cell with at least two per condition (1.0\% of the 510-cell grid undersized). Analyses use paired $t$-tests and Wilcoxon signed-rank tests with Cohen's $d_z$, 10,000-sample bootstrap confidence intervals, Holm correction over each family of tests, per-item ordinary-least-squares slopes on $\log_2(\text{budget}+1)$, and mixed-effects models with random item intercepts. The scored dataset contains one row per model $\times$ budget $\times$ item cell (510 rows).
+
+\section{Results}
+
+This section reports the four research questions in turn. Descriptively, mean signed scores are negative for every model at every budget (range $-0.23$ to $-0.10$), which already hints that the dominant behavior is movement against the human bias directions; the exception, anchoring, is isolated in Sec.~\ref{sec:rq3}.
+
+\subsection{RQ1: Reasoning versus matched non-reasoning models}
+Table~\ref{tab:rq1} compares bias magnitude $|s|$ for each reasoning model (averaged over its positive budgets) against its family comparator at budget 0, paired by item. In no family is the reasoning model less biased. All four differences point the same way, with the reasoning model slightly higher ($d_z = 0.08$ to $0.26$), and none is reliable on its own after Holm correction. Pooled across the four families as item $\times$ family pairs, the difference is $\Delta = +0.031$, 95\% CI $[0.002, 0.063]$, $t(119) = 2.00$, $p = .048$, $d_z = 0.18$; the Wilcoxon test on the same pairs does not reach the threshold ($p = .115$). We read this as a small effect whose direction, consistent across families, is the informative part: the data give no support to the idea that reasoning models are the safer choice on these tasks, and some indication of the opposite. On signed scores the pattern is similar in kind: no family shows a reliable difference, and the pooled contrast is null ($t(119) = -0.93$, $p = .352$).
+
+\begin{table}[t]
+\centering
+\caption{RQ1: bias magnitude $|s|$ for reasoning models (budgets $>0$) versus matched non-reasoning comparators, paired by item ($n=30$).}
+\label{tab:rq1}
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{lccccccc}
+\hline
+Family & $M_{\text{reas}}$ & $M_{\text{instr}}$ & $\Delta$ & 95\% CI & $t(29)$ & $p_{\text{Holm}}$ & $d_z$ \\
+\hline
+claude   & 0.271 & 0.244 & $+0.027$ & $[-0.024, 0.088]$ & 0.95 & .714 & 0.17 \\
+deepseek & 0.275 & 0.249 & $+0.026$ & $[-0.013, 0.070]$ & 1.20 & .714 & 0.22 \\
+openai   & 0.299 & 0.243 & $+0.056$ & $[-0.014, 0.140]$ & 1.40 & .686 & 0.26 \\
+qwen     & 0.301 & 0.287 & $+0.015$ & $[-0.046, 0.079]$ & 0.45 & .714 & 0.08 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Positive $\Delta$ = reasoning model more biased. Pooled: $\Delta = +0.031$, $t(119)=2.00$, $p=.048$, $d_z=0.18$.
+\end{table}
+
+\subsection{RQ2: Dose-response over the thinking budget}
+Fig.~\ref{fig:dose} plots bias against budget; Table~\ref{tab:rq2} gives the trend statistics on magnitude. No model shows a declining slope. Per-item slopes on $\log_2(\text{budget}+1)$ are indistinguishable from zero for Claude ($+0.0017$, $p=.477$), DeepSeek-R1 ($-0.0011$, $p=.778$), and Qwen3 ($-0.0001$, $p=.987$). The only mixed-effects trend that clears the threshold belongs to GPT-5.1, and it points up, not down: magnitude rises with budget ($\beta = +0.0049$, $p = .015$), driven by the signed score moving further negative ($\beta = -0.0062$, $p = .007$; Claude shows a weaker version of the same signed drift, $\beta = -0.0039$, $p = .043$). In other words, where budget does anything at all, it pushes the model further \emph{against} the human bias directions rather than toward zero. Across 24 model $\times$ measure trend tests, none shows the decline that the deliberation account predicts. The two no-disable models are flat to three decimal places across their entire budget range.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1_dose_response.pdf}
+\caption{Dose-response of bias against the reasoning budget (error bars: 95\% bootstrap CIs). Left: magnitude $|s|$. Right: signed score $s$. No model's bias declines with budget; DeepSeek-R1 and Qwen3 are flat, and GPT-5.1's signed score drifts further negative.}
+\label{fig:dose}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{RQ2: trend of bias magnitude $|s|$ on the reasoning budget.}
+\label{tab:rq2}
+\footnotesize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{lcccccc}
+\hline
+Model & $\rho$ & $p_\rho$ & slope & $p$ & $\beta_{\text{LMM}}$ & $p_{\text{LMM}}$ \\
+\hline
+claude-haiku-4.5-th. & $-0.047$ & .609 & $+0.0017$ & .477 & $+0.0017$ & .390 \\
+deepseek-r1          & $-0.016$ & .879 & $-0.0011$ & .778 & $-0.0011$ & .788 \\
+gpt-5.1-reasoning    & $+0.103$ & .264 & $+0.0049$ & .150 & $+0.0049$ & .015 \\
+qwen3-thinking       & $-0.001$ & .994 & $-0.0001$ & .987 & $-0.0001$ & .984 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Slopes are per-item OLS coefficients on $\log_2(\text{budget}+1)$ tested against zero; $\beta_{\text{LMM}}$ from mixed models with random item intercepts.
+\end{table}
+
+\subsection{RQ3: Which biases exist, and in which direction}
+\label{sec:rq3}
+Table~\ref{tab:rq3} classifies each bias from the signed score over all 85 model $\times$ budget cells per bias, with item-clustered bootstrap intervals and Holm correction; Fig.~\ref{fig:heatmap} shows the full bias $\times$ model map. The picture is uniform across all seven models. Anchoring is present in the human direction and strongly so ($M = +0.163$, $d = 1.89$): a numeric anchor in the prompt pulls estimates toward itself in every model, from $+0.11$ (Qwen3-thinking) to $+0.20$ (Claude instruct). Every other bias is reversed. The framing effect, which in people flips risk preferences between gain and loss frames \cite{tversky1981framing}, runs backwards here ($M = -0.336$, $d = -2.35$), and loss aversion shows the largest reversal ($M = -0.586$, $d = -0.88$, reaching $-0.87$ for Qwen3-Instruct): offered the choice pairs where humans over-weight losses \cite{kahneman1979prospect}, these models lean the other way, a pattern consistent with expected-value maximization rather than prospect-theoretic weighting. Escalation of commitment, availability, and confirmation bias show smaller but reliable reversals ($d = -0.68$, $-0.42$, $-0.65$). On the budget-sensitivity side, no bias qualifies as reasoning-responsive: all six per-bias slope tests are null after correction (all $p_{\text{Holm}} \ge .278$), so the taxonomy contains one human-like bias, five reversed ones, and zero that thinking budget moves.
+
+\begin{table}[t]
+\centering
+\caption{RQ3: presence classification per bias (signed score vs.\ 0 over 85 cells; item-clustered bootstrap CIs; Holm-corrected).}
+\label{tab:rq3}
+\footnotesize
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{lccccl}
+\hline
+Bias & $M$ & 95\% CI & $t(84)$ & $d$ & Class \\
+\hline
+Anchoring        & $+0.163$ & $[+0.111, +0.215]$ & $17.45$  & $+1.89$ & Present \\
+Framing Effect   & $-0.336$ & $[-0.403, -0.251]$ & $-21.70$ & $-2.35$ & Reversed \\
+Loss Aversion    & $-0.586$ & $[-0.914, +0.031]$ & $-8.09$  & $-0.88$ & Reversed \\
+Escalation Comm. & $-0.070$ & $[-0.115, -0.031]$ & $-6.23$  & $-0.68$ & Reversed \\
+Availability H.  & $-0.035$ & $[-0.068, +0.005]$ & $-3.86$  & $-0.42$ & Reversed \\
+Confirmation B.  & $-0.139$ & $[-0.249, -0.043]$ & $-6.02$  & $-0.65$ & Reversed \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize All Holm-corrected $p < .001$. ``Present'' = human-like direction; ``Reversed'' = reliable shift against it.
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig2_bias_model_heatmap.pdf}
+\caption{Mean signed bias score by bias type and model. Red indicates movement in the human bias direction, blue the reverse. Anchoring is the only red row; the reversal pattern holds for every model, reasoning and instruct alike.}
+\label{fig:heatmap}
+\end{figure*}
+
+\subsection{RQ4: Forcing the model to verbalize the anchor}
+The verbalized condition adds one instruction to the anchoring treatment: restate every number in the prompt before answering. Pooled over all 85 model $\times$ budget $\times$ item cells, this lowers the anchoring score from the standard treatment ($\Delta = -0.015$, 95\% CI $[-0.026, -0.004]$, $t(84) = -2.72$, $p = .008$, $d_z = -0.30$; Wilcoxon $p = .011$). Five of the seven models move in that direction (Fig.~\ref{fig:verb}); the per-model effect survives Holm correction for DeepSeek-R1 ($\Delta = -0.028$, $t(14) = -3.35$, $p_{\text{Holm}} = .033$, $d_z = -0.87$), with the instruct Claude close behind before correction ($p = .012$, $d_z = -1.95$ on five items). The effect is small in absolute terms, but its comparison point matters: a single prompt line moves anchoring in the helpful direction, while the 8,192-token thinking budget in RQ2 moved it nowhere.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig3_verbalization_dumbbell.pdf}
+\caption{Anchoring with and without forced anchor verbalization, by model. Verbalization lowers anchoring in five of seven models; the pooled reduction is reliable ($p=.008$).}
+\label{fig:verb}
+\end{figure}
+
+\section{Discussion}
+
+This section interprets the three main findings and draws out what they mean for deployment and for the deliberation analogy.
+
+\subsection{An inverted bias landscape}
+The strongest result is not about reasoning at all. Across seven models spanning four training pipelines and both open and closed weights, five of six classic biases run in the direction opposite to the human one, and the pattern is remarkably consistent (Fig.~\ref{fig:heatmap}). One reading is that this is what heavy preference tuning looks like from the outside. Hagendorff et al.\ observed human-like biases weakening from GPT-3 to ChatGPT \cite{hagendorff2023human}, and Itzhak et al.\ showed that instruction tuning reshapes bias profiles in both directions \cite{itzhak2024instructed}; our data suggest the trajectory has continued past neutrality into overcorrection. Loss aversion is the clearest case. The reversal there is what a risk-neutral expected-value maximizer would produce on these choice pairs, and models trained to give ``rational'' answers may have internalized exactly that norm. Whatever the mechanism, the practical upshot is that the familiar human bias catalog is the wrong checklist for auditing these systems: a deployment review that asks ``is the model loss-averse like a person?'' will answer no and miss that the model deviates from neutrality just as far the other way. Deviation in either direction is a calibration failure with consequences, for instance a decision-support system that under-weights losses in exactly the settings where its users over-weight them.
+
+\subsection{No debiasing dividend from thinking}
+Against this backdrop, the reasoning results are a clean negative. Matched within families, reasoning models are not less biased than their siblings (RQ1); the pooled effect points the other way, small but uniform in direction. Across budgets, no model's bias declines (RQ2), and the two models that cannot stop thinking are flat over an eight-fold budget range. The dual-process prediction, more deliberation, less bias, fails on both axes it can be tested on here. This does not mean the thinking is idle; on verifiable tasks it demonstrably helps \cite{snell2024scaling}. It means the deliberation does not function as a bias corrector, which fits the trace-level evidence that reasoning text and answer-driving computation can come apart \cite{turpin2023language, chen2025reasoning, shojaee2025illusion}. Anchoring makes the point concretely: the anchor keeps its pull at 8,192 thinking tokens, so whatever those tokens do, they do not include discounting the number that is biasing the answer.
+
+\subsection{Attention beats effort on anchoring}
+The one intervention that moved anchoring was not more compute but a redirection of it: asking the model to restate the anchor before answering produced a reliable pooled reduction (RQ4). The size is modest and one model (DeepSeek-V3) shifted the other way, so we present this as a cheap, imperfect mitigation rather than a solution. Still, the contrast with RQ2 is the useful part. For this bias, one line of prompt engineering did what thousands of thinking tokens did not, which suggests that targeted prompting and per-bias audits are currently a better use of effort than budget increases when the goal is judgment quality rather than task accuracy.
+
+\subsection{Implications for practice}
+Three concrete recommendations follow. First, do not treat the reasoning tier of a model family as the lower-bias option; in our panel it never was, and the pooled evidence leans the other way. Second, audit deployed models per bias and per direction, since the sign of the deviation is model-agnostic here but its size varies by family (loss-aversion reversal ranged from $-0.44$ to $-0.87$). Third, where numeric anchors are a known hazard, an anchor-restating instruction is a low-cost mitigation worth testing in context.
+
+\section{Limitations}
+
+The design has boundaries worth stating plainly. The stimuli are vignettes from a single benchmark family; vignette-based measurement is the standard paradigm in both the human and machine literatures \cite{tversky1974judgment, malberg2024comprehensive}, but effects can be sensitive to phrasing, and five items per bias is a narrow base, particularly for the per-model RQ4 contrasts (five cells for instruct models). Budgets top out at 8,192 tokens; we cannot rule out effects at much larger budgets, though nothing in the flat slopes suggests one. The budget is a ceiling rather than an exact consumption level, and for the two no-disable models a true zero condition does not exist, which we handled by exclusion and sibling comparators rather than imputation. Our claims are behavioral: the study measures what the models do, not why, and the overcorrection reading of the reversals is an interpretation the data are consistent with, not a demonstrated mechanism. Finally, all calls went through one routing provider during one collection window; model updates behind fixed identifiers are a general reproducibility hazard, which the released harness and frozen battery mitigate but cannot remove.
+
+\section{Conclusion}
+
+We asked whether test-time reasoning immunizes language models against human cognitive biases, and the answer in this study is no on every axis measured: reasoning models are not less biased than matched siblings, bias does not fall as the thinking budget grows, and the one bias that behaves like its human counterpart, anchoring, is exactly as strong after 8,192 tokens of deliberation as before. What the data show instead is a bias landscape inverted relative to the human catalog, with five of six classic effects running reliably backwards in all seven models, and a small, cheap prompt intervention outperforming compute where it counts. For a venue concerned with cognitive machine intelligence, the message cuts both ways. The dual-process analogy earns its keep as a hypothesis generator, but its central prediction fails here, and evaluation practice should follow the data: measure biases in both directions, per model, and treat deliberation length as a cost knob rather than a rationality guarantee.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

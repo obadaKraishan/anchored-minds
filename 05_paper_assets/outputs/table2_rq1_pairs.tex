@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{RQ1: bias magnitude $|s|$ for reasoning models (budgets $>0$) vs matched non-reasoning comparators, paired by item.}
+\label{tab:rq1}
+\small
+\begin{tabular}{lccccccc}
+\hline
+Family & $M_{reason}$ & $M_{instruct}$ & $\Delta$ & 95\% CI & $t(29)$ & $p_{Holm}$ & $d_z$ \\
+\hline
+claude & 0.271 & 0.244 & +0.027 & [-0.024, 0.088] & 0.95 & .714 & 0.17 \\
+deepseek & 0.275 & 0.249 & +0.026 & [-0.013, 0.070] & 1.20 & .714 & 0.22 \\
+openai & 0.299 & 0.243 & +0.056 & [-0.014, 0.140] & 1.40 & .686 & 0.26 \\
+qwen & 0.301 & 0.287 & +0.015 & [-0.046, 0.079] & 0.45 & .714 & 0.08 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Positive $\Delta$ = reasoning model MORE biased. Pooled across families: $\Delta=+0.031$, $t(119)=2.00$, $p=.048$, $d_z=0.18$.
+\end{table}

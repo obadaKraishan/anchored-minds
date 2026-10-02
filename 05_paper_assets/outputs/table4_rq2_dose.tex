@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{RQ2: dose-response of bias magnitude on reasoning budget (log$_2$(budget+1)).}
+\label{tab:rq2}
+\small
+\begin{tabular}{lccccccc}
+\hline
+Model & $\rho$ & $p_\rho$ & slope & 95\% CI & $p$ & $\beta_{LMM}$ & $p_{LMM}$ \\
+\hline
+claude-haiku-4.5-thinking & -0.047 & .609 & +0.0017 & [-0.0025, 0.0064] & .477 & +0.0017 & .390 \\
+deepseek-r1 & -0.016 & .879 & -0.0011 & [-0.0078, 0.0063] & .778 & -0.0011 & .788 \\
+gpt-5.1-reasoning & +0.103 & .264 & +0.0049 & [-0.0009, 0.0117] & .150 & +0.0049 & .015 \\
+qwen3-thinking & -0.001 & .994 & -0.0001 & [-0.0118, 0.0142] & .987 & -0.0001 & .984 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Per-item OLS slopes tested against 0; mixed model has random item intercepts.
+\end{table}

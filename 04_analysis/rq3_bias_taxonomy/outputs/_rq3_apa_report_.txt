@@ -1,0 +1,46 @@
+==========================================================================
+ RQ3 -- BIAS TAXONOMY: PRESENCE AND REASONING-SENSITIVITY
+ Generated: 2026-08-12T00:05:36.944586+00:00
+==========================================================================
+
+--- Part A: is each bias PRESENT, ABSENT, or REVERSED? ---
+ (signed score over all model x budget x item cells; CI is item-
+  clustered bootstrap; p-values Holm-corrected across 6 biases)
+
+bias                      M       SD     95% CI (clustered)  t       df  p_holm  d      classification  
+--------------------------------------------------------------------------------------------------------
+Anchoring                 0.163   0.086  [0.111, 0.215]      17.45   84  < .001  1.89   PRESENT         
+Framing Effect            -0.336  0.143  [-0.403, -0.251]    -21.70  84  < .001  -2.35  REVERSED        
+Loss Aversion             -0.586  0.668  [-0.914, 0.031]     -8.09   84  < .001  -0.88  REVERSED        
+Escalation Of Commitment  -0.070  0.103  [-0.115, -0.031]    -6.23   84  < .001  -0.68  REVERSED        
+Availability Heuristic    -0.035  0.083  [-0.068, 0.005]     -3.86   84  < .001  -0.42  REVERSED        
+Confirmation Bias         -0.139  0.212  [-0.249, -0.043]    -6.02   84  < .001  -0.65  REVERSED        
+
+APA sentences (Part A):
+  Anchoring: M = 0.163, SD = 0.086, item-clustered 95% CI [0.111, 0.215], t(84) = 17.45, Holm-corrected p < .001, Cohen's d = 1.89 -> PRESENT.
+  Framing Effect: M = -0.336, SD = 0.143, item-clustered 95% CI [-0.403, -0.251], t(84) = -21.70, Holm-corrected p < .001, Cohen's d = -2.35 -> REVERSED.
+  Loss Aversion: M = -0.586, SD = 0.668, item-clustered 95% CI [-0.914, 0.031], t(84) = -8.09, Holm-corrected p < .001, Cohen's d = -0.88 -> REVERSED.
+  Escalation Of Commitment: M = -0.070, SD = 0.103, item-clustered 95% CI [-0.115, -0.031], t(84) = -6.23, Holm-corrected p < .001, Cohen's d = -0.68 -> REVERSED.
+  Availability Heuristic: M = -0.035, SD = 0.083, item-clustered 95% CI [-0.068, 0.005], t(84) = -3.86, Holm-corrected p < .001, Cohen's d = -0.42 -> REVERSED.
+  Confirmation Bias: M = -0.139, SD = 0.212, item-clustered 95% CI [-0.249, -0.043], t(84) = -6.02, Holm-corrected p < .001, Cohen's d = -0.65 -> REVERSED.
+
+--- Part B: is each bias sensitive to reasoning budget? ---
+ (per-item slopes of |bias| on log2(budget+1) within reasoning
+  models, pooled across models; Holm-corrected)
+
+bias                      slope M  95% CI              t      df  p_holm   classification                    
+-------------------------------------------------------------------------------------------------------------
+Anchoring                 -0.0004  [-0.0044, 0.0031]   -0.20  19  = 1.000  REASONING-INVARIANT               
+Framing Effect            -0.0087  [-0.0173, 0.0022]   -1.70  19  = .424   REASONING-INVARIANT               
+Loss Aversion             0.0049   [-0.0054, 0.0160]   0.89   19  = 1.000  REASONING-INVARIANT               
+Escalation Of Commitment  -0.0103  [-0.0169, -0.0045]  -3.14  19  = .033   REASONING-RESPONSIVE (decreases)  
+Availability Heuristic    0.0008   [-0.0028, 0.0042]   0.42   19  = 1.000  REASONING-INVARIANT               
+Confirmation Bias         0.0218   [0.0089, 0.0380]    2.82   19  = .054   REASONING-INVARIANT               
+
+APA sentences (Part B):
+  Anchoring: mean per-item budget slope = -0.0004 (95% CI [-0.0044, 0.0031]), t(19) = -0.20, Holm-corrected p = 1.000 -> REASONING-INVARIANT.
+  Framing Effect: mean per-item budget slope = -0.0087 (95% CI [-0.0173, 0.0022]), t(19) = -1.70, Holm-corrected p = .424 -> REASONING-INVARIANT.
+  Loss Aversion: mean per-item budget slope = 0.0049 (95% CI [-0.0054, 0.0160]), t(19) = 0.89, Holm-corrected p = 1.000 -> REASONING-INVARIANT.
+  Escalation Of Commitment: mean per-item budget slope = -0.0103 (95% CI [-0.0169, -0.0045]), t(19) = -3.14, Holm-corrected p = .033 -> REASONING-RESPONSIVE (decreases).
+  Availability Heuristic: mean per-item budget slope = 0.0008 (95% CI [-0.0028, 0.0042]), t(19) = 0.42, Holm-corrected p = 1.000 -> REASONING-INVARIANT.
+  Confirmation Bias: mean per-item budget slope = 0.0218 (95% CI [0.0089, 0.0380]), t(19) = 2.82, Holm-corrected p = .054 -> REASONING-INVARIANT.

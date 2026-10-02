@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{RQ4: anchoring score with vs without forced anchor verbalization (paired by model$\times$budget$\times$item cell).}
+\label{tab:rq4}
+\small
+\begin{tabular}{lccccccc}
+\hline
+Model & $M_{std}$ & $M_{verb}$ & $\Delta$ & $t$ & $df$ & $p_{Holm}$ & $d_z$ \\
+\hline
+claude-haiku-4.5 & 0.200 & 0.132 & -0.068 & -4.35 & 4 & .073 & -1.95 \\
+claude-haiku-4.5-thinking & 0.179 & 0.173 & -0.006 & -0.59 & 19 & 1.000 & -0.13 \\
+deepseek-r1 & 0.147 & 0.119 & -0.028 & -3.35 & 14 & .033 & -0.87 \\
+deepseek-v3 & 0.184 & 0.216 & +0.032 & 3.30 & 4 & .150 & 1.48 \\
+gpt-5.1-reasoning & 0.181 & 0.170 & -0.011 & -1.62 & 19 & .489 & -0.36 \\
+qwen3-instruct & 0.168 & 0.187 & +0.018 & 0.58 & 4 & 1.000 & 0.26 \\
+qwen3-thinking & 0.112 & 0.083 & -0.029 & -1.45 & 14 & .504 & -0.38 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Negative $\Delta$ = verbalization reduces anchoring.
+\end{table}
