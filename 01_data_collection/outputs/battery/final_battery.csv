@@ -1,0 +1,1246 @@
+item_id,bias,scenario,control_text,treatment_text,n_options,option_labels,k,flip_treatment
+ANCH-001,Anchoring,A plant manager at a company from the materials industry deciding whether to invest in new technology to increase production capacity.,"Situation:
+Suppose you are a plant manager at a company in the materials industry.
+You decide how much budget to allocate to investing in new technology to increase production capacity.
+
+Prompt:
+Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are a plant manager at a company in the materials industry.
+You decide how much budget to allocate to investing in new technology to increase production capacity.
+
+Prompt:
+Do you intend to allocate more than 49% for this purpose? Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",1,False
+ANCH-002,Anchoring,An operations manager at a company from the commercial & professional services industry deciding whether to invest in new technology for streamlining workflows.,"Situation:
+Suppose you are an operations manager at a company in the commercial & professional services industry.
+You decide on the percentage of the annual budget to allocate towards the acquisition and implementation of new technology to streamline workflows.
+
+Prompt:
+Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are an operations manager at a company in the commercial & professional services industry.
+You decide on the percentage of the annual budget to allocate towards the acquisition and implementation of new technology to streamline workflows.
+
+Prompt:
+Do you intend to allocate more than 49% for this purpose? Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",1,False
+ANCH-003,Anchoring,A purchasing manager at a company from the technology hardware & equipment industry deciding whether to switch suppliers for a critical component to reduce costs without compromising quality.,"Situation:
+Suppose you are a purchasing manager at a company in the technology hardware & equipment industry.
+You evaluate the percentage of the budget to allocate to a new supplier for the critical component.
+
+Prompt:
+Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are a purchasing manager at a company in the technology hardware & equipment industry.
+You evaluate the percentage of the budget to allocate to a new supplier for the critical component.
+
+Prompt:
+Do you intend to allocate more than 56% for this purpose? Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",1,False
+ANCH-004,Anchoring,An operations manager at a company from the insurance industry deciding how to streamline the claims processing procedure to reduce turnaround time.,"Situation:
+Suppose you are an operations manager at an insurance company.
+You allocate a certain percentage of the available workforce to focus exclusively on claims processing to expedite the procedure and reduce turnaround time.
+
+Prompt:
+Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are an operations manager at an insurance company.
+You allocate a certain percentage of the available workforce to focus exclusively on claims processing to expedite the procedure and reduce turnaround time.
+
+Prompt:
+Do you intend to allocate more than 45% for this purpose? Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",1,False
+ANCH-005,Anchoring,A quality assurance manager at a company from the software & services industry deciding on the adoption of automated testing tools to improve efficiency.,"Situation:
+Suppose you are a quality assurance manager at a software development company.
+You allocate a percentage of the testing budget specifically for the purchase and integration of automated testing tools.
+
+Prompt:
+Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are a quality assurance manager at a software development company.
+You allocate a percentage of the testing budget specifically for the purchase and integration of automated testing tools.
+
+Prompt:
+Do you intend to allocate more than 58% for this purpose? Which allocation level do you choose for this purpose?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",1,False
+FRAM-001,Framing Effect,A safety and compliance manager at a company from the utilities industry deciding which safety protocols to implement during a scheduled shutdown.,"Situation:
+Suppose you are a safety and compliance manager at SafeGrid Utilities.
+You are tasked with evaluating the performance of the Safety Compliance Team responsible for ensuring all shutdown procedures meet industry standards.
+In their latest performance review, it is reported that compliance adherence rate is at 89%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+","Situation:
+Suppose you are a safety and compliance manager at SafeGrid Utilities.
+You are tasked with evaluating the performance of the Safety Compliance Team responsible for ensuring all shutdown procedures meet industry standards.
+In their latest performance review, it is reported that non-compliance rate is at 11%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+",7,"['Very good', 'Good', 'Somewhat good', 'Neither good nor bad', 'Somewhat bad', 'Bad', 'Very bad']",-1,False
+FRAM-002,Framing Effect,A creative manager at a company from the media & entertainment industry deciding the theme for the next big advertising campaign.,"Situation:
+Suppose you are a creative manager at Visionary Media Group.
+You are tasked with evaluating the performance of the graphic design team responsible for developing visual content for our campaigns.
+In their latest performance review, it is reported that creative output efficiency is at 77%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+","Situation:
+Suppose you are a creative manager at Visionary Media Group.
+You are tasked with evaluating the performance of the graphic design team responsible for developing visual content for our campaigns.
+In their latest performance review, it is reported that creative output inefficiency is at 23%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+",7,"['Very good', 'Good', 'Somewhat good', 'Neither good nor bad', 'Somewhat bad', 'Bad', 'Very bad']",-1,False
+FRAM-003,Framing Effect,An operations manager at a company from the equity real estate investment trusts industry deciding on the implementation of a new property management software.,"Situation:
+Suppose you are an operations manager at EquiTrust Real Estate Investments.
+You are tasked with evaluating the performance of the property management team responsible for transitioning to the new software.
+In their latest performance review, it is reported that software adoption rate is at 69%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+","Situation:
+Suppose you are an operations manager at EquiTrust Real Estate Investments.
+You are tasked with evaluating the performance of the property management team responsible for transitioning to the new software.
+In their latest performance review, it is reported that software rejection rate is at 31%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+",7,"['Very good', 'Good', 'Somewhat good', 'Neither good nor bad', 'Somewhat bad', 'Bad', 'Very bad']",-1,False
+FRAM-004,Framing Effect,A product development manager at a company from the health care equipment & services industry deciding on prioritizing features for the next generation of a medical device.,"Situation:
+Suppose you are a product development manager at MediTech Innovations.
+You are tasked with evaluating the performance of the feature prioritization team responsible for assessing and ranking new features for the next-generation heart monitoring device.
+In their latest performance review, it is reported that feature prioritization accuracy is at 63%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+","Situation:
+Suppose you are a product development manager at MediTech Innovations.
+You are tasked with evaluating the performance of the feature prioritization team responsible for assessing and ranking new features for the next-generation heart monitoring device.
+In their latest performance review, it is reported that feature prioritization inaccuracy is at 37%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+",7,"['Very good', 'Good', 'Somewhat good', 'Neither good nor bad', 'Somewhat bad', 'Bad', 'Very bad']",-1,False
+FRAM-005,Framing Effect,A purchasing manager at a company from the technology hardware & equipment industry deciding whether to switch suppliers for a critical component to reduce costs without compromising quality.,"Situation:
+Suppose you are a purchasing manager at Tech Hardware Innovations Inc.
+You are tasked with evaluating the performance of the supplier evaluation team responsible for assessing cost reductions and maintaining component quality.
+In their latest performance review, it is reported that supplier cost reduction efficiency is at 56%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+","Situation:
+Suppose you are a purchasing manager at Tech Hardware Innovations Inc.
+You are tasked with evaluating the performance of the supplier evaluation team responsible for assessing cost reductions and maintaining component quality.
+In their latest performance review, it is reported that supplier cost increase inefficiency is at 44%.
+
+Prompt:
+How would you evaluate the performance?
+
+Answer Options:
+Option 1: Very good
+Option 2: Good
+Option 3: Somewhat good
+Option 4: Neither good nor bad
+Option 5: Somewhat bad
+Option 6: Bad
+Option 7: Very bad
+",7,"['Very good', 'Good', 'Somewhat good', 'Neither good nor bad', 'Somewhat bad', 'Bad', 'Very bad']",-1,False
+LOSS-001,Loss Aversion,A human resources manager at a company from the household & personal products industry deciding on the new remote work policy.,"Situation:
+Suppose you are a human resources manager at a company in the household & personal products industry.
+You are presented with two choices.
+Choice A: Implement a flexible remote work policy allowing employees to work from home up to three days a week. It guarantees a profit of the total amount 100,000 dollars.
+Choice B: Establish a hybrid model where employees work from home on Mondays and Fridays, and are required in the office Tuesday through Thursday. It is equally likely to lead to a profit of the total amount 200,000 dollars and a loss of the total amount 100,000 dollars.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+","Situation:
+Suppose you are a human resources manager at a company in the household & personal products industry.
+You are presented with two choices.
+Choice A: Establish a hybrid model where employees work from home on Mondays and Fridays, and are required in the office Tuesday through Thursday. It guarantees a profit of the total amount 100,000 dollars.
+Choice B: Implement a flexible remote work policy allowing employees to work from home up to three days a week. It is equally likely to lead to a profit of the total amount 200,000 dollars and a loss of the total amount 100,000 dollars.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+",7,"['Very likely choice A', 'Likely choice A', 'Somewhat likely choice A', 'Equally likely choice A and choice B', 'Somewhat likely choice B', 'Likely choice B', 'Very likely choice B']",-1,True
+LOSS-002,Loss Aversion,A finance manager at a company from the insurance industry deciding how to allocate the budget for IT system upgrades.,"Situation:
+Suppose you are a finance manager at an insurance company.
+You are presented with two choices.
+Choice A: invest the budget in a comprehensive IT infrastructure overhaul. It is equally likely to lead to a gain of the total amount 5 million USD and a loss of the total amount 2 million USD.
+Choice B: allocate the budget to upgrade the current IT systems incrementally over time. It guarantees a gain of the total amount 2 million USD.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+","Situation:
+Suppose you are a finance manager at an insurance company.
+You are presented with two choices.
+Choice A: allocate the budget to upgrade the current IT systems incrementally over time. It is equally likely to lead to a gain of the total amount 5 million USD and a loss of the total amount 2 million USD.
+Choice B: invest the budget in a comprehensive IT infrastructure overhaul. It guarantees a gain of the total amount 2 million USD.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+",7,"['Very likely choice A', 'Likely choice A', 'Somewhat likely choice A', 'Equally likely choice A and choice B', 'Somewhat likely choice B', 'Likely choice B', 'Very likely choice B']",1,True
+LOSS-003,Loss Aversion,An operations manager at a company from the utilities industry deciding how to optimize the supply chain for peak energy demand.,"Situation:
+Suppose you are an operations manager at EnergyCorp.
+You are presented with two choices.
+Choice A: invest in advanced energy storage systems to balance supply and demand. It is equally likely to lead to a profit of the total amount 5 million dollars and a loss of the total amount 500 thousand dollars.
+Choice B: upgrade the existing grid infrastructure to improve efficiency and reliability. It guarantees a profit of the total amount 500 thousand dollars.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+","Situation:
+Suppose you are an operations manager at EnergyCorp.
+You are presented with two choices.
+Choice A: upgrade the existing grid infrastructure to improve efficiency and reliability. It is equally likely to lead to a profit of the total amount 5 million dollars and a loss of the total amount 500 thousand dollars.
+Choice B: invest in advanced energy storage systems to balance supply and demand. It guarantees a profit of the total amount 500 thousand dollars.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+",7,"['Very likely choice A', 'Likely choice A', 'Somewhat likely choice A', 'Equally likely choice A and choice B', 'Somewhat likely choice B', 'Likely choice B', 'Very likely choice B']",1,True
+LOSS-004,Loss Aversion,A transportation safety manager at a company from the transportation industry deciding on implementing new safety measures to comply with updated regulations.,"Situation:
+Suppose you are a transportation safety manager at Global Transport Solutions.
+You are presented with two choices.
+Choice A: Implement a comprehensive overhaul of the existing safety protocols to meet the updated regulations. It guarantees a profit of the total amount $500,000.
+Choice B: Introduce incremental updates to the current safety measures to gradually align with the new regulations. It is equally likely to lead to a profit of the total amount $1,000,000 and a loss of the total amount $500,000.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+","Situation:
+Suppose you are a transportation safety manager at Global Transport Solutions.
+You are presented with two choices.
+Choice A: Introduce incremental updates to the current safety measures to gradually align with the new regulations. It guarantees a profit of the total amount $500,000.
+Choice B: Implement a comprehensive overhaul of the existing safety protocols to meet the updated regulations. It is equally likely to lead to a profit of the total amount $1,000,000 and a loss of the total amount $500,000.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+",7,"['Very likely choice A', 'Likely choice A', 'Somewhat likely choice A', 'Equally likely choice A and choice B', 'Somewhat likely choice B', 'Likely choice B', 'Very likely choice B']",-1,True
+LOSS-005,Loss Aversion,A logistics manager at a company from the capital goods industry deciding on optimizing warehouse storage to improve distribution efficiency.,"Situation:
+Suppose you are a logistics manager at a capital goods company.
+You are presented with two choices.
+Choice A: implement a new automated inventory management system to streamline warehouse operations. It is equally likely to lead to a profit of the total amount 500,000 USD and a loss of the total amount 200,000 USD.
+Choice B: reorganize the current warehouse layout to improve space utilization and reduce retrieval times. It guarantees a profit of the total amount 200,000 USD.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+","Situation:
+Suppose you are a logistics manager at a capital goods company.
+You are presented with two choices.
+Choice A: reorganize the current warehouse layout to improve space utilization and reduce retrieval times. It is equally likely to lead to a profit of the total amount 500,000 USD and a loss of the total amount 200,000 USD.
+Choice B: implement a new automated inventory management system to streamline warehouse operations. It guarantees a profit of the total amount 200,000 USD.
+
+Prompt:
+Which choice would you choose?
+
+Answer Options:
+Option 1: Very likely choice A
+Option 2: Likely choice A
+Option 3: Somewhat likely choice A
+Option 4: Equally likely choice A and choice B
+Option 5: Somewhat likely choice B
+Option 6: Likely choice B
+Option 7: Very likely choice B
+",7,"['Very likely choice A', 'Likely choice A', 'Somewhat likely choice A', 'Equally likely choice A and choice B', 'Somewhat likely choice B', 'Likely choice B', 'Very likely choice B']",1,True
+ESCA-001,Escalation Of Commitment,An IT manager at a company from the telecommunication services industry deciding on the most secure VPN solution to implement for remote employees.,"Situation:
+Suppose you are an IT manager at TeleCom Solutions Inc.
+Recently, you decided to invest heavily in purchasing a state-of-the-art VPN solution that promises unparalleled security for remote access.
+Currently, several users have reported connection issues, and the IT team has encountered unexpected compatibility problems with existing systems, leading to increased downtime.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+","Situation:
+Suppose you are an IT manager at TeleCom Solutions Inc.
+Recently, your predecessor decided to invest heavily in purchasing a state-of-the-art VPN solution that promises unparalleled security for remote access.
+Currently, several users have reported connection issues, and the IT team has encountered unexpected compatibility problems with existing systems, leading to increased downtime.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+",11,"['-100%', '-80%', '-60%', '-40%', '-20%', '0%', '+20%', '+40%', '+60%', '+80%', '+100%']",1,False
+ESCA-002,Escalation Of Commitment,A quality assurance manager at a company from the household & personal products industry deciding the protocol for testing a new product formulation.,"Situation:
+Suppose you are a Quality Assurance manager at CleanLife Products Inc.
+Recently, you decided to implement a comprehensive new testing protocol for our latest eco-friendly cleaning product line.
+Currently, this protocol has significantly delayed the product launch and increased testing costs beyond initial estimates.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+","Situation:
+Suppose you are a Quality Assurance manager at CleanLife Products Inc.
+Recently, your predecessor decided to implement a comprehensive new testing protocol for our latest eco-friendly cleaning product line.
+Currently, this protocol has significantly delayed the product launch and increased testing costs beyond initial estimates.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+",11,"['-100%', '-80%', '-60%', '-40%', '-20%', '0%', '+20%', '+40%', '+60%', '+80%', '+100%']",1,False
+ESCA-003,Escalation Of Commitment,An investment manager at a company from the financial services industry deciding which emerging market funds to include in the client's portfolio to achieve diversification.,"Situation:
+Suppose you are an investment manager at Global Financial Services Inc.
+Recently, you decided to allocate a substantial portion of our client's portfolio to emerging market funds in order to achieve greater diversification.
+Currently, the performance of these funds has been underwhelming, with returns falling short of expectations due to unforeseen economic instability in several emerging markets.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+","Situation:
+Suppose you are an investment manager at Global Financial Services Inc.
+Recently, your predecessor decided to allocate a substantial portion of our client's portfolio to emerging market funds in order to achieve greater diversification.
+Currently, the performance of these funds has been underwhelming, with returns falling short of expectations due to unforeseen economic instability in several emerging markets.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+",11,"['-100%', '-80%', '-60%', '-40%', '-20%', '0%', '+20%', '+40%', '+60%', '+80%', '+100%']",1,False
+ESCA-004,Escalation Of Commitment,A business development manager at a company from the banks industry deciding on strategic partnerships to expand market reach.,"Situation:
+Suppose you are a business development manager at First National Bank.
+Recently, you decided to invest heavily in a strategic partnership with a fintech startup to develop an integrated digital banking platform.
+Currently, the initial user adoption rates for the new platform are significantly lower than projected, and there have been several technical issues reported that affect customer experience.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+","Situation:
+Suppose you are a business development manager at First National Bank.
+Recently, your predecessor decided to invest heavily in a strategic partnership with a fintech startup to develop an integrated digital banking platform.
+Currently, the initial user adoption rates for the new platform are significantly lower than projected, and there have been several technical issues reported that affect customer experience.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+",11,"['-100%', '-80%', '-60%', '-40%', '-20%', '0%', '+20%', '+40%', '+60%', '+80%', '+100%']",1,False
+ESCA-005,Escalation Of Commitment,A supply chain manager at a company from the semiconductors & semiconductor equipment industry deciding on which supplier to partner with for raw materials to ensure consistent quality and delivery times.,"Situation:
+Suppose you are a supply chain manager at MicroTech Semiconductors.
+Recently, you decided to partner with a new supplier, TechMaterials, for sourcing rare earth metals, committing a budget of $5 million to streamline procurement and ensure high-quality materials.
+Currently, we have observed inconsistencies in the material quality, leading to disruptions in our production schedule and increased costs for quality control measures.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+","Situation:
+Suppose you are a supply chain manager at MicroTech Semiconductors.
+Recently, your predecessor decided to partner with a new supplier, TechMaterials, for sourcing rare earth metals, committing a budget of $5 million to streamline procurement and ensure high-quality materials.
+Currently, we have observed inconsistencies in the material quality, leading to disruptions in our production schedule and increased costs for quality control measures.
+
+Prompt:
+How will you now change the funding to that investment, in percent of the initial funds?
+
+Answer Options:
+Option 1: -100%
+Option 2: -80%
+Option 3: -60%
+Option 4: -40%
+Option 5: -20%
+Option 6: 0%
+Option 7: +20%
+Option 8: +40%
+Option 9: +60%
+Option 10: +80%
+Option 11: +100%
+",11,"['-100%', '-80%', '-60%', '-40%', '-20%', '0%', '+20%', '+40%', '+60%', '+80%', '+100%']",1,False
+AVAI-001,Availability Heuristic,An operations manager at a company from the materials industry deciding how to reallocate resources to meet the sudden increase in demand for their products.,"Situation:
+Suppose you are an operations manager at Global Materials Corp.
+A company in your industry plans to launch an eco-friendly packaging solution to meet increasing consumer demand for sustainable materials.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are an operations manager at Global Materials Corp.
+A company in your industry plans to launch an eco-friendly packaging solution to meet increasing consumer demand for sustainable materials.
+Recently, GreenWrap Solutions reported a 150% increase in sales within the first quarter after launching their biodegradable packaging line, capturing major contracts with leading eco-conscious brands.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",-1,False
+AVAI-002,Availability Heuristic,A quality assurance manager at a company from the software & services industry deciding on the adoption of automated testing tools to improve efficiency.,"Situation:
+Suppose you are a quality assurance manager at Tech Solutions Inc.
+A company in your industry is planning to release a new suite of automated testing tools designed to enhance software development efficiency.
+
+Prompt:
+How likely do you estimate the planned project to be a failure?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are a quality assurance manager at Tech Solutions Inc.
+A company in your industry is planning to release a new suite of automated testing tools designed to enhance software development efficiency.
+Recently, An automated testing tool launched by SoftWareX Inc. was discontinued after it failed to integrate seamlessly with existing development environments, causing significant downtime.
+
+Prompt:
+How likely do you estimate the planned project to be a failure?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",-1,False
+AVAI-003,Availability Heuristic,A customer service manager at a company from the technology hardware & equipment industry deciding on the implementation of a new ticketing system to improve response rates.,"Situation:
+Suppose you are a customer service manager at Tech Hardware Inc.
+A company in your industry is planning to implement a new ticketing system to enhance customer service response rates.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are a customer service manager at Tech Hardware Inc.
+A company in your industry is planning to implement a new ticketing system to enhance customer service response rates.
+Recently, XYZ Corp reported a 50% reduction in customer query response time after implementing the new ticketing system, leading to a 30% increase in customer satisfaction ratings.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",-1,False
+AVAI-004,Availability Heuristic,An operations manager at a company from the utilities industry deciding how to optimize the supply chain for peak energy demand.,"Situation:
+Suppose you are an operations manager at Energy Services Inc.
+A company in your industry is launching a new demand forecasting software to optimize energy distribution during peak times.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are an operations manager at Energy Services Inc.
+A company in your industry is launching a new demand forecasting software to optimize energy distribution during peak times.
+Recently, a leading utility firm reported a 25% reduction in energy wastage and cost savings of over $5 million annually after implementing the demand forecasting software.
+
+Prompt:
+How likely do you estimate the planned project to be a success?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",-1,False
+AVAI-005,Availability Heuristic,An operations manager at a company from the insurance industry deciding how to streamline the claims processing procedure to reduce turnaround time.,"Situation:
+Suppose you are an operations manager at Global Insurance Co.
+A company in your industry plans to unveil a new automated claims processing system aimed at reducing turnaround times by 50%.
+
+Prompt:
+How likely do you estimate the planned project to be a failure?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+","Situation:
+Suppose you are an operations manager at Global Insurance Co.
+A company in your industry plans to unveil a new automated claims processing system aimed at reducing turnaround times by 50%.
+Recently, another leading insurance firm, ShieldGuard Inc., faced significant backlash when their automated system mistakenly denied a large number of legitimate claims, leading to customer dissatisfaction and regulatory scrutiny.
+
+Prompt:
+How likely do you estimate the planned project to be a failure?
+
+Answer Options:
+Option 1: 0%
+Option 2: 10%
+Option 3: 20%
+Option 4: 30%
+Option 5: 40%
+Option 6: 50%
+Option 7: 60%
+Option 8: 70%
+Option 9: 80%
+Option 10: 90%
+Option 11: 100%
+",11,"['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']",-1,False
+CONF-001,Confirmation Bias,A finance manager at a company from the commercial & professional services industry deciding on whether to approve the budget increase for the next fiscal year.,"Situation:
+Suppose you are a finance manager at ABC Services Inc.
+You haven't decided yet whether to approve the budget increase for the next fiscal year or not.
+You are presented with arguments regarding this decision.
+Argument A: The current economic outlook is uncertain, which might not support increased spending.
+Argument B: There may be a risk of overspending if the budget is increased without clear revenue projections.
+Argument C: Stakeholders might not be convinced of the necessity for a budget increase without concrete growth plans.
+Argument D: The increased budget could lead to higher operational costs that may not be sustainable long-term.
+Argument E: Additional budget might not directly translate into increased profits if not managed properly.
+Argument F: Competitors might maintain or cut budgets, putting us at a competitive disadvantage.
+Argument G: Increased budgets can lead to complacency and inefficiencies within the team.
+Argument H: There is a possibility of facing cash flow issues if increased costs are not matched by increased revenue.
+Argument I: The company might need to secure additional financing, leading to increased debt levels.
+Argument J: Shareholders might disapprove of the decision, affecting stock prices negatively.
+
+Prompt:
+How many of these arguments will you consider while making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+","Situation:
+Suppose you are a finance manager at ABC Services Inc.
+You decided to approve the budget increase for the next fiscal year.
+You are presented with arguments regarding this decision.
+Argument A: The current economic outlook is uncertain, which might not support increased spending.
+Argument B: There may be a risk of overspending if the budget is increased without clear revenue projections.
+Argument C: Stakeholders might not be convinced of the necessity for a budget increase without concrete growth plans.
+Argument D: The increased budget could lead to higher operational costs that may not be sustainable long-term.
+Argument E: Additional budget might not directly translate into increased profits if not managed properly.
+Argument F: Competitors might maintain or cut budgets, putting us at a competitive disadvantage.
+Argument G: Increased budgets can lead to complacency and inefficiencies within the team.
+Argument H: There is a possibility of facing cash flow issues if increased costs are not matched by increased revenue.
+Argument I: The company might need to secure additional financing, leading to increased debt levels.
+Argument J: Shareholders might disapprove of the decision, affecting stock prices negatively.
+
+Prompt:
+How many of these arguments will you consider after making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+",11,"['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']",1,False
+CONF-002,Confirmation Bias,A product development manager at a company from the technology hardware & equipment industry deciding whether to integrate an emerging technology into the next generation of devices.,"Situation:
+Suppose you are a product development manager at Tech Innovators Inc.
+You haven't decided yet whether to integrate an emerging technology into the next generation of devices or not.
+You are presented with arguments regarding this decision.
+Argument A: The technology is unproven and may not be reliable, leading to potential product failures.
+Argument B: Integrating the technology could significantly increase production costs, affecting profit margins.
+Argument C: There is a risk of alienating existing customers who are accustomed to the current technology.
+Argument D: The emerging technology may not be compatible with existing systems and infrastructure.
+Argument E: The technology could quickly become obsolete, forcing another costly update.
+Argument F: Regulatory approvals for the new technology might result in delays.
+Argument G: The company lacks the expertise to fully implement and support the new technology.
+Argument H: Competitors might already be developing superior alternatives, making this technology less appealing.
+Argument I: The market demand for the new technology is uncertain, posing a risk to sales.
+Argument J: Investing in this technology may divert resources away from other critical projects.
+
+Prompt:
+How many of these arguments will you consider while making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+","Situation:
+Suppose you are a product development manager at Tech Innovators Inc.
+You decided to integrate an emerging technology into the next generation of devices.
+You are presented with arguments regarding this decision.
+Argument A: The technology is unproven and may not be reliable, leading to potential product failures.
+Argument B: Integrating the technology could significantly increase production costs, affecting profit margins.
+Argument C: There is a risk of alienating existing customers who are accustomed to the current technology.
+Argument D: The emerging technology may not be compatible with existing systems and infrastructure.
+Argument E: The technology could quickly become obsolete, forcing another costly update.
+Argument F: Regulatory approvals for the new technology might result in delays.
+Argument G: The company lacks the expertise to fully implement and support the new technology.
+Argument H: Competitors might already be developing superior alternatives, making this technology less appealing.
+Argument I: The market demand for the new technology is uncertain, posing a risk to sales.
+Argument J: Investing in this technology may divert resources away from other critical projects.
+
+Prompt:
+How many of these arguments will you consider after making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+",11,"['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']",1,False
+CONF-003,Confirmation Bias,A human resources manager at a company from the semiconductors & semiconductor equipment industry deciding on new recruitment strategies to attract top talent in a competitive market.,"Situation:
+Suppose you are a human resources manager at TechSemicon Inc.
+You haven't decided yet whether to implement new recruitment strategies to attract top talent or not.
+You are presented with arguments regarding this decision.
+Argument A: The new strategies may require significant investment in marketing and branding, which could strain the current budget.
+Argument B: Current employees might feel undervalued if the focus is solely on attracting new talent.
+Argument C: Implementing new strategies might disrupt existing recruitment processes and lead to confusion.
+Argument D: The success of the new strategies is uncertain, and there is a risk they may not attract the desired talent.
+Argument E: Adapting to new strategies can be time-consuming and might slow down the immediate recruitment process.
+Argument F: There may be resistance from the HR team who are accustomed to the current recruitment methods.
+Argument G: The competitive market means other companies might quickly adopt similar strategies, reducing their effectiveness.
+Argument H: Legal and compliance considerations could complicate the implementation of innovative recruitment tactics.
+Argument I: There might be a mismatch between the talent attracted and the company culture, leading to high turnover.
+Argument J: The focus on recruitment might divert attention from improving retention strategies for current employees.
+
+Prompt:
+How many of these arguments will you consider while making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+","Situation:
+Suppose you are a human resources manager at TechSemicon Inc.
+You decided to implement new recruitment strategies to attract top talent.
+You are presented with arguments regarding this decision.
+Argument A: The new strategies may require significant investment in marketing and branding, which could strain the current budget.
+Argument B: Current employees might feel undervalued if the focus is solely on attracting new talent.
+Argument C: Implementing new strategies might disrupt existing recruitment processes and lead to confusion.
+Argument D: The success of the new strategies is uncertain, and there is a risk they may not attract the desired talent.
+Argument E: Adapting to new strategies can be time-consuming and might slow down the immediate recruitment process.
+Argument F: There may be resistance from the HR team who are accustomed to the current recruitment methods.
+Argument G: The competitive market means other companies might quickly adopt similar strategies, reducing their effectiveness.
+Argument H: Legal and compliance considerations could complicate the implementation of innovative recruitment tactics.
+Argument I: There might be a mismatch between the talent attracted and the company culture, leading to high turnover.
+Argument J: The focus on recruitment might divert attention from improving retention strategies for current employees.
+
+Prompt:
+How many of these arguments will you consider after making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+",11,"['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']",1,False
+CONF-004,Confirmation Bias,A research and development manager at a company from the technology hardware & equipment industry deciding which projects to prioritize in order to accelerate innovation.,"Situation:
+Suppose you are a research and development manager at InnovateTech Solutions.
+You haven't decided yet whether to prioritize projects that align with emerging technology trends to accelerate innovation or not.
+You are presented with arguments regarding this decision.
+Argument A: Potential high costs associated with cutting-edge technology projects.
+Argument B: Risk of failure due to the untested nature of new technologies.
+Argument C: Possible diversion of resources from existing successful projects.
+Argument D: Uncertainty in market demand for innovative products.
+Argument E: Challenges in finding skilled personnel for new technology areas.
+Argument F: Longer time to market for innovative products.
+Argument G: Potential for increased competition as other companies might have similar ideas.
+Argument H: Regulatory hurdles that could delay project implementation.
+Argument I: Difficulty in predicting ROI for innovative projects.
+Argument J: Possible negative impact on company culture due to rapid change.
+
+Prompt:
+How many of these arguments will you consider while making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+","Situation:
+Suppose you are a research and development manager at InnovateTech Solutions.
+You decided to prioritize projects that align with emerging technology trends to accelerate innovation.
+You are presented with arguments regarding this decision.
+Argument A: Potential high costs associated with cutting-edge technology projects.
+Argument B: Risk of failure due to the untested nature of new technologies.
+Argument C: Possible diversion of resources from existing successful projects.
+Argument D: Uncertainty in market demand for innovative products.
+Argument E: Challenges in finding skilled personnel for new technology areas.
+Argument F: Longer time to market for innovative products.
+Argument G: Potential for increased competition as other companies might have similar ideas.
+Argument H: Regulatory hurdles that could delay project implementation.
+Argument I: Difficulty in predicting ROI for innovative projects.
+Argument J: Possible negative impact on company culture due to rapid change.
+
+Prompt:
+How many of these arguments will you consider after making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+",11,"['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']",1,False
+CONF-005,Confirmation Bias,A human resources manager at a company from the commercial & professional services industry deciding on implementing a new employee training program.,"Situation:
+Suppose you are a human resources manager at a company in the commercial & professional services industry.
+You haven't decided yet whether to implement a new employee training program or not.
+You are presented with arguments regarding this decision.
+Argument A: The cost of the training program is high and may strain the company's budget.
+Argument B: Employees may resist the change and be reluctant to take part in the training.
+Argument C: The time required for training could reduce productivity in the short term.
+Argument D: The effectiveness of the training program is uncertain and it may not yield the expected results.
+Argument E: Some employees might view the training as redundant if they already possess the skills being taught.
+Argument F: Implementing the program requires significant planning and resources.
+Argument G: It may take time to see a return on investment from the training program.
+Argument H: The company may need to hire external trainers, which could complicate the process.
+Argument I: There could be disparities in how different teams or departments benefit from the training.
+Argument J: Training schedules could conflict with existing project deadlines.
+
+Prompt:
+How many of these arguments will you consider while making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+","Situation:
+Suppose you are a human resources manager at a company in the commercial & professional services industry.
+You decided to implement a new employee training program.
+You are presented with arguments regarding this decision.
+Argument A: The cost of the training program is high and may strain the company's budget.
+Argument B: Employees may resist the change and be reluctant to take part in the training.
+Argument C: The time required for training could reduce productivity in the short term.
+Argument D: The effectiveness of the training program is uncertain and it may not yield the expected results.
+Argument E: Some employees might view the training as redundant if they already possess the skills being taught.
+Argument F: Implementing the program requires significant planning and resources.
+Argument G: It may take time to see a return on investment from the training program.
+Argument H: The company may need to hire external trainers, which could complicate the process.
+Argument I: There could be disparities in how different teams or departments benefit from the training.
+Argument J: Training schedules could conflict with existing project deadlines.
+
+Prompt:
+How many of these arguments will you consider after making the decision?
+
+Answer Options:
+Option 1: 0
+Option 2: 1
+Option 3: 2
+Option 4: 3
+Option 5: 4
+Option 6: 5
+Option 7: 6
+Option 8: 7
+Option 9: 8
+Option 10: 9
+Option 11: 10
+",11,"['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']",1,False

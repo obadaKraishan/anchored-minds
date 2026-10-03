@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Model panel and design cells per model. Budgets are requested extended-thinking token ceilings.}
+\label{tab:design}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lllll}
+\hline
+Model & Family & Type & Budgets & Cells \\
+\hline
+claude-haiku-4.5-thinking & claude & reasoning & 0, 1k, 4k, 8k & 120 \\
+claude-haiku-4.5 & claude & instruct & 0 & 30 \\
+gpt-5.1-reasoning & openai & reasoning & 0, 1k, 4k, 8k & 120 \\
+deepseek-r1 & deepseek & no-disable & 1k, 4k, 8k & 90 \\
+deepseek-v3 & deepseek & instruct & 0 & 30 \\
+qwen3-thinking & qwen & no-disable & 1k, 4k, 8k & 90 \\
+qwen3-instruct & qwen & instruct & 0 & 30 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize ``no-disable'' models cannot switch thinking off; their instruct siblings provide the family's budget-0 point.
+\end{table}

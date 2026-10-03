@@ -1,0 +1,26 @@
+# secrets
+.env
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# third-party benchmark cache (regenerate with 01_data_collection/download_benchmark.py)
+01_data_collection/outputs/benchmark_raw.json
+
+# per-run collection logs (rewritten by run_experiments.py)
+01_data_collection/outputs/raw_responses/run_log.txt
+01_data_collection/outputs/raw_responses/run_manifest.json
+
+# setup / cost-estimate outputs (machine-specific, regenerated on demand)
+00_setup/setup_report.txt
+00_setup/cost_estimate.csv
+00_setup/cost_estimate.txt

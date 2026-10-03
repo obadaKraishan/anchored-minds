@@ -1,0 +1,27 @@
+======================================================================
+ ANCHORED MINDS -- BUILD TEST BATTERY
+ Timestamp : 2026-08-09T21:11:17.196914+00:00
+ Seed      : 42 | items per bias: 5
+======================================================================
+
+[1/4] Loaded raw benchmark: 30,000 rows, 30 biases
+[2/4] All 6 target biases present ✓
+
+[3/4] Sampling 5 items per bias (seeded, distinct scenarios preferred)
+      Anchoring                    sampled 5/5
+      Framing Effect               sampled 5/5
+      Loss Aversion                sampled 5/5
+      Escalation Of Commitment     sampled 5/5
+      Availability Heuristic       sampled 5/5
+      Confirmation Bias            sampled 5/5
+
+[4/4] Battery FROZEN: 30 items
+      CSV  -> 01_data_collection/outputs/battery/final_battery.csv
+      JSON -> 01_data_collection/outputs/battery/final_battery.json
+
+      Option-scale sizes: 7-point x10, 11-point x20
+
+======================================================================
+ RESULT: BATTERY BUILT ✓   (do not rebuild after experiments start)
+ Next step: python 01_data_collection/run_experiments.py --smoke-test
+======================================================================

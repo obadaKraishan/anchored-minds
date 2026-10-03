@@ -1,0 +1,34 @@
+============================================================================
+ RQ2 -- DOSE-RESPONSE: BIAS vs log2(REALIZED REASONING TOKENS + 1)
+============================================================================
+
+ Mean signed score per model x budget: range -0.227 to -0.100 (17/17 negative)
+
+ claude-haiku-4.5-thinking: realized tokens span 0 to 805 per cell
+   per-item OLS slope of |s|: mean = +0.0029, t(29) = 0.91, p = .372
+   mixed model |s|: beta = +0.0029, p = .259
+   mixed model  s : beta = -0.0059, p = .018
+
+ gpt-5.1-reasoning: realized tokens span 0 to 225 per cell
+   per-item OLS slope of |s|: mean = +0.0081, t(29) = 1.36, p = .184
+   mixed model |s|: beta = +0.0084, p = .018
+   mixed model  s : beta = -0.0104, p = .010
+
+ deepseek-r1: realized tokens span 707 to 2807 per cell
+   per-item OLS slope of |s|: mean = -0.1428, t(29) = -1.63, p = .114
+   mixed model |s|: beta = +0.0030, p = .958
+   mixed model  s : beta = -0.0179, p = .776
+
+ qwen3-thinking: realized tokens span 534 to 3440 per cell
+   per-item OLS slope of |s|: mean = +0.0266, t(29) = 0.25, p = .805
+   mixed model |s|: beta = -0.0657, p = .213
+   mixed model  s : beta = +0.0933, p = .075
+
+model                      range     slope |s|  t      df  p     beta |s|  p     beta s   p     
+------------------------------------------------------------------------------------------------
+claude-haiku-4.5-thinking  0-805     +0.0029    0.91   29  .372  +0.0029   .259  -0.0059  .018  
+gpt-5.1-reasoning          0-225     +0.0081    1.36   29  .184  +0.0084   .018  -0.0104  .010  
+deepseek-r1                707-2807  -0.1428    -1.63  29  .114  +0.0030   .958  -0.0179  .776  
+qwen3-thinking             534-3440  +0.0266    0.25   29  .805  -0.0657   .213  +0.0933  .075  
+
+Saved: rq2_results.csv, signed_by_model_budget.csv, rq2_report.txt

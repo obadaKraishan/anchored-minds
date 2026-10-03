@@ -1,0 +1,35 @@
+============================================================================
+ RQ4 -- FORCED ANCHOR VERBALIZATION (Anchoring items)
+============================================================================
+
+ Cells with both conditions: 85
+ Pooled over cells: Delta = -0.015, 95% bootstrap CI [-0.026, -0.004]
+
+ Item level:
+
+item      cells  M_standard  M_verbalized  Delta   
+---------------------------------------------------
+ANCH-001  17     +0.135      +0.128        -0.007  
+ANCH-002  17     +0.134      +0.121        -0.013  
+ANCH-003  17     +0.209      +0.193        -0.015  
+ANCH-004  17     +0.075      +0.072        -0.004  
+ANCH-005  17     +0.262      +0.225        -0.036  
+
+   item means range -0.036 to -0.004; t(4) = -2.65, p = .057
+   sign test: 5/5 items negative, two-sided p = .062
+
+ Per model:
+
+model                      cells  M_standard  M_verbalized  Delta   
+--------------------------------------------------------------------
+claude-haiku-4.5           5      +0.200      +0.132        -0.068  
+qwen3-thinking             15     +0.112      +0.083        -0.029  
+deepseek-r1                15     +0.147      +0.119        -0.028  
+gpt-5.1-reasoning          20     +0.181      +0.170        -0.011  
+claude-haiku-4.5-thinking  20     +0.179      +0.173        -0.006  
+qwen3-instruct             5      +0.168      +0.187        +0.018  
+deepseek-v3                5      +0.184      +0.216        +0.032  
+
+   5/7 models lower with verbalization
+
+Saved: rq4_items.csv, rq4_models.csv, rq4_summary.csv, rq4_report.txt

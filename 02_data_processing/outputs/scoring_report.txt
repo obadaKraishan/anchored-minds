@@ -1,0 +1,46 @@
+======================================================================
+ ANCHORED MINDS -- COMPUTE BIAS SCORES
+ Timestamp : 2026-10-03T13:00:19.469835+00:00
+======================================================================
+
+[1/3] Loaded 11,736 parsed responses
+      EXCLUDED 755 budget-0 responses from ['deepseek-r1', 'qwen3-thinking'] (cannot disable thinking; sibling models provide the b0 point)
+      Applied flip_treatment reversal to 849 responses
+
+[2/3] Aggregating to model x budget x item cells
+      510 cells (7 models x budgets x 30 items)
+
+      Mean bias score by model x budget (positive = bias-direction shift):
+        claude-haiku-4.5               b0      M=-0.134  SD=0.335  n=30
+        claude-haiku-4.5-thinking      b0      M=-0.128  SD=0.329  n=30
+        claude-haiku-4.5-thinking      b1024   M=-0.208  SD=0.358  n=30
+        claude-haiku-4.5-thinking      b4096   M=-0.198  SD=0.373  n=30
+        claude-haiku-4.5-thinking      b8192   M=-0.148  SD=0.351  n=30
+        deepseek-r1                    b1024   M=-0.153  SD=0.416  n=30
+        deepseek-r1                    b4096   M=-0.154  SD=0.415  n=30
+        deepseek-r1                    b8192   M=-0.157  SD=0.410  n=30
+        deepseek-v3                    b0      M=-0.157  SD=0.344  n=30
+        gpt-5.1-reasoning              b0      M=-0.100  SD=0.373  n=30
+        gpt-5.1-reasoning              b1024   M=-0.157  SD=0.418  n=30
+        gpt-5.1-reasoning              b4096   M=-0.168  SD=0.426  n=30
+        gpt-5.1-reasoning              b8192   M=-0.186  SD=0.414  n=30
+        qwen3-instruct                 b0      M=-0.227  SD=0.370  n=30
+        qwen3-thinking                 b1024   M=-0.185  SD=0.408  n=30
+        qwen3-thinking                 b4096   M=-0.184  SD=0.403  n=30
+        qwen3-thinking                 b8192   M=-0.197  SD=0.401  n=30
+
+      Mean bias score by bias type (all models/budgets pooled):
+        Anchoring                    M=+0.163  SD=0.086
+        Availability Heuristic       M=-0.035  SD=0.083
+        Confirmation Bias            M=-0.139  SD=0.212
+        Escalation Of Commitment     M=-0.070  SD=0.103
+        Framing Effect               M=-0.336  SD=0.143
+        Loss Aversion                M=-0.586  SD=0.668
+
+[3/3] MASTER FILE saved -> 02_data_processing/outputs/master_scores.csv
+      (input to 03_codebook, 04_analysis, 05_figures_tables)
+
+======================================================================
+ RESULT: SCORING COMPLETE ✓
+ Next step: python 02_data_processing/validate_dataset.py
+======================================================================

@@ -1,0 +1,2 @@
+n_cells,pooled_mean,pooled_ci_lo,pooled_ci_hi,n_items,item_min,item_max,t,df,p,n_items_negative,sign_test_p,n_models,n_models_negative
+85,-0.0150686274509804,-0.026049019607843144,-0.004391421568627469,5,-0.03627450980392157,-0.0037254901960784227,-2.645838672024523,4,0.05723000685469071,5,0.0625,7,5

@@ -1,0 +1,31 @@
+============================================================================
+ RQ3 -- BIAS TAXONOMY: PRESENCE AND DELIBERATION SENSITIVITY
+============================================================================
+
+--- Part A: signed score vs 0 per bias (t(4) on five item means) ---
+
+bias                      M       95% CI (item-clustered)  t      df  p     p_holm  d      models same sign  model means   class        
+----------------------------------------------------------------------------------------------------------------------------------------
+Anchoring                 +0.163  [+0.111, +0.215]         5.02   4   .007  .037    +1.89  7/7               +0.11..+0.20  Present      
+Framing Effect            -0.336  [-0.403, -0.245]         -7.57  4   .002  .010    -2.35  7/7               -0.50..-0.28  Reversed     
+Loss Aversion             -0.586  [-0.914, +0.031]         -1.91  4   .128  .256    -0.88  7/7               -0.87..-0.44  Directional  
+Escalation Of Commitment  -0.070  [-0.119, -0.031]         -2.79  4   .049  .197    -0.68  7/7               -0.14..-0.02  Directional  
+Availability Heuristic    -0.035  [-0.068, +0.005]         -1.71  4   .162  .256    -0.42  6/7               -0.09..+0.03  Absent       
+Confirmation Bias         -0.139  [-0.249, -0.043]         -2.38  4   .076  .227    -0.65  7/7               -0.22..-0.02  Directional  
+
+--- Part B: slope of |s| on log2(realized tokens + 1) per bias ---
+ (per model x item slopes within reasoning models, averaged over
+  models per item; t(4) on the five item means; Holm across biases)
+
+bias                      slope    t      df  p     p_holm  result           
+-----------------------------------------------------------------------------
+Anchoring                 +0.0684  2.10   4   .104  .519    not significant  
+Framing Effect            -0.0662  -0.55  4   .609  1.000   not significant  
+Loss Aversion             -0.0528  -0.82  4   .457  1.000   not significant  
+Escalation Of Commitment  -0.2047  -2.59  4   .061  .364    not significant  
+Availability Heuristic    -0.0186  -0.41  4   .703  1.000   not significant  
+Confirmation Bias         +0.1161  0.83   4   .455  1.000   not significant  
+
+ 6/6 per-bias slope tests null after Holm correction.
+
+Saved: rq3_presence.csv, rq3_sensitivity.csv, rq3_report.txt

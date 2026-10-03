@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{RQ2: trend of bias on $\log_2(\text{realized reasoning tokens}+1)$, per model, within the realized range.}
+\label{tab:rq2}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccc}
+\hline
+Model & Range (tokens) & slope $t(29)$, $p$ & $\beta_{|s|}$ ($p$) & $\beta_{s}$ ($p$) \\
+\hline
+claude-th. & 0--805 & $0.91$, .372 & $+0.003$ (.259) & $-0.006$ (.018) \\
+gpt-5.1 & 0--225 & $1.36$, .184 & $+0.008$ (.018) & $-0.010$ (.010) \\
+deepseek-r1 & 707--2807 & $-1.63$, .114 & $+0.003$ (.958) & $-0.018$ (.776) \\
+qwen3-th. & 534--3440 & $0.25$, .805 & $-0.066$ (.213) & $+0.093$ (.075) \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Range is the span of cell-mean realized tokens. ``slope'' tests the per-item OLS slope of $|s|$ against zero; $\beta$ coefficients are from mixed models with random item intercepts, per doubling of realized tokens.
+\end{table}

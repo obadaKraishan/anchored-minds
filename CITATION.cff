@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "Anchored Minds: code and data for 'The Long Road to the Same Answer'"
+authors:
+  - family-names: Kraishan
+    given-names: Obada
+    affiliation: "College of Media and Communication, Texas Tech University"
+    email: omareikr@ttu.edu
+repository-code: "https://github.com/obadaKraishan/anchored-minds"
+license: MIT
+keywords:
+  - cognitive bias
+  - large language models
+  - test-time compute
+  - reasoning models
+preferred-citation:
+  type: conference-paper
+  title: "The Long Road to the Same Answer: Cognitive Bias Under Escalating Reasoning Budgets in Large Language Models"
+  authors:
+    - family-names: Kraishan
+      given-names: Obada
+      affiliation: "College of Media and Communication, Texas Tech University"
+  collection-title: "Proceedings of the 8th IEEE International Conference on Cognitive Machine Intelligence (CogMI 2026)"
+  conference:
+    name: "8th IEEE International Conference on Cognitive Machine Intelligence (CogMI 2026)"
+  publisher:
+    name: IEEE
+  year: 2026
+  notes: "To appear."

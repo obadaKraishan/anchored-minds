@@ -1,0 +1,39 @@
+======================================================================
+ ANCHORED MINDS -- PARSE RESPONSES
+ Timestamp : 2026-10-03T13:00:18.858132+00:00
+======================================================================
+
+[1/3] Found 19 raw response files
+      Loaded 12,350 ok responses (0 failed calls skipped, 0 duplicates dropped)
+
+      Note: 1,300 responses are in design-excluded b0 cells of ['deepseek-r1', 'qwen3-thinking']
+            (parse rate there: 58.1%, not counted toward the parse rates below)
+
+[2/3] Parse rates on analyzable data (target: >= 95% per model)
+      [✓] claude-haiku-4.5               100.00%  (n=650)
+      [✓] claude-haiku-4.5-thinking      100.00%  (n=2,600)
+      [✓] deepseek-r1                     99.79%  (n=1,950)
+      [✓] deepseek-v3                    100.00%  (n=650)
+      [✓] gpt-5.1-reasoning              100.00%  (n=2,600)
+      [!] qwen3-instruct                  92.77%  (n=650)
+      [✓] qwen3-thinking                  99.08%  (n=1,950)
+      ----------------------------------------------------
+          OVERALL (analyzable)            99.38%  (n=11,050)
+
+      69 unparseable responses; first task_ids:
+        - deepseek-r1|b1024|FRAM-005|control|s7
+        - deepseek-r1|b1024|CONF-002|treatment|s4
+        - deepseek-r1|b1024|LOSS-003|treatment|s4
+        - deepseek-r1|b1024|ESCA-002|treatment|s1
+        - qwen3-instruct|b0|ANCH-001|control|s1
+
+[3/3] Saved parsed responses -> 02_data_processing/outputs/parsed_responses.csv
+
+======================================================================
+ RESULT: PARSING COMPLETE ✓  (overall 99.38%)
+ [!] WARNING: 1 model(s) below the 95% parse-rate target: qwen3-instruct (92.77%)
+     Unparsed responses are excluded from scoring. In the released data this
+     is the documented Qwen3-Instruct exclusion (raw quantities instead of an
+     option index); for new data, inspect the task_ids above.
+ Next step: python 02_data_processing/compute_bias_scores.py
+======================================================================

@@ -1,0 +1,29 @@
+============================================================================
+ MANIPULATION CHECK -- REALIZED REASONING TOKENS PER MODEL x BUDGET
+============================================================================
+ 12,350 calls; reasoning_tokens reported for 12,350
+
+ model                         budget    mean  median     max  >ceiling
+ claude-haiku-4.5                   0       0       0       0          
+ claude-haiku-4.5-thinking          0       0       0       0          
+ claude-haiku-4.5-thinking       1024     437     434     683        0%
+ claude-haiku-4.5-thinking       4096     575     574    1023        0%
+ claude-haiku-4.5-thinking       8192     620     604    1218        0%
+ deepseek-r1                        0    1188    1186    4983          
+ deepseek-r1                     1024    1555    1526    4579       79%
+ deepseek-r1                     4096    1605    1546    5507        0%
+ deepseek-r1                     8192    1617    1566    4101        0%
+ deepseek-v3                        0       0       0       0          
+ gpt-5.1-reasoning                  0       0       0       0          
+ gpt-5.1-reasoning               1024     116      85     948        0%
+ gpt-5.1-reasoning               4096     118      89     675        0%
+ gpt-5.1-reasoning               8192     118      90     715        0%
+ qwen3-instruct                     0       0       0       0          
+ qwen3-thinking                     0    1074    1014    5088          
+ qwen3-thinking                  1024    1321    1038    5621       52%
+ qwen3-thinking                  4096    1440    1054    5967        3%
+ qwen3-thinking                  8192    1436    1008    6109        0%
+
+ Models that cannot disable thinking (deepseek-r1, qwen3-thinking): mean consumption 1,074 to 1,617 tokens per call across all requested budgets, including budget 0.
+
+Saved: realized_tokens.csv, manipulation_check_report.txt

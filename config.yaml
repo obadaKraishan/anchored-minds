@@ -1,0 +1,148 @@
+# Central configuration for the whole pipeline (collection, processing,
+# analysis). Values here are the ones used in the paper.
+
+project:
+  name: anchored-minds
+  seed: 42                        # global RNG seed (battery sampling, bootstrap)
+
+# -----------------------------------------------------------------------------
+# Paths (relative to repository root). Scripts resolve these automatically.
+# -----------------------------------------------------------------------------
+paths:
+  benchmark_raw: 01_data_collection/outputs/benchmark_raw.json
+  battery_dir: 01_data_collection/outputs/battery
+  raw_responses_dir: 01_data_collection/outputs/raw_responses
+  processing_dir: 02_data_processing/outputs
+  codebook_dir: 03_codebook/outputs
+  usage_csv: data/per_call_usage.csv
+
+# -----------------------------------------------------------------------------
+# Experiment design
+# -----------------------------------------------------------------------------
+experiment:
+  n_items_per_bias: 5             # scenarios sampled per bias (frozen in battery)
+  n_samples_per_cell: 10          # repeated samples per item x condition x budget
+  temperature: 1.0                # sampling temperature
+  max_output_tokens: 1024         # cap on the visible answer (not the thinking)
+  request_timeout_s: 120
+  max_retries: 4
+  concurrency: 8                  # parallel in-flight requests
+  # Cost-estimation heuristics only (real usage is logged from API responses):
+  est_input_tokens: 400
+  est_output_tokens: 350
+
+# -----------------------------------------------------------------------------
+# Target biases.
+# Names must match the benchmark's bias labels exactly (Malberg et al.,
+# arXiv:2410.15413); download_benchmark.py lists all available labels.
+# Numeric estimation (anchoring), choice architecture (framing, loss aversion,
+# escalation of commitment), belief-driven judgment (availability,
+# confirmation).
+# -----------------------------------------------------------------------------
+biases:
+  - Anchoring
+  - Framing Effect
+  - Loss Aversion
+  - Escalation Of Commitment   # the sunk-cost paradigm in this benchmark
+  - Availability Heuristic
+  - Confirmation Bias
+
+# -----------------------------------------------------------------------------
+# Requested reasoning budgets (thinking-token ceilings).
+# 0 = extended thinking disabled. Reasoning models run all budgets;
+# non-reasoning models run budget 0 only.
+# -----------------------------------------------------------------------------
+budgets: [0, 1024, 4096, 8192]
+
+# -----------------------------------------------------------------------------
+# Model panel.
+# provider: all calls go through OpenRouter (one key, one uniform reasoning
+#           parameter); run_experiments.py calls OpenRouter only.
+# reasoning: true  -> controllable thinking budget (runs all budgets)
+# reasoning: false -> instruct sibling (budget 0 only)
+# pair: model family; groups a reasoning model with its non-reasoning sibling
+#       for the RQ1 comparison (OpenAI has no sibling: its comparator is
+#       gpt-5.1-reasoning at budget 0 with thinking disabled).
+# cannot_disable_thinking: the model thinks even when thinking is disabled, so
+#       budget 0 is undefined for it; its budget-0 cells are excluded from
+#       scoring and the family's instruct sibling provides the zero point.
+# price_in / price_out: USD per 1M tokens at the time of the study (used only
+#       by cost_estimator.py).
+# -----------------------------------------------------------------------------
+models:
+  # --- Anthropic pair -------------------------------------------------------
+  - name: claude-haiku-4.5-thinking
+    provider: openrouter
+    model_id: anthropic/claude-haiku-4.5
+    reasoning: true
+    pair: claude
+    price_in: 1.00
+    price_out: 5.00
+
+  - name: claude-haiku-4.5
+    provider: openrouter
+    model_id: anthropic/claude-haiku-4.5
+    reasoning: false
+    pair: claude
+    price_in: 1.00
+    price_out: 5.00
+
+  # --- OpenAI pair ----------------------------------------------------------
+  - name: gpt-5.1-reasoning
+    provider: openrouter
+    model_id: openai/gpt-5.1
+    reasoning: true
+    pair: openai
+    price_in: 1.25
+    price_out: 10.00
+
+  # --- Open-weights pair (DeepSeek) ----------------------------------------
+  - name: deepseek-r1
+    provider: openrouter
+    model_id: deepseek/deepseek-r1
+    reasoning: true
+    pair: deepseek
+    price_in: 0.55
+    price_out: 2.19
+    cannot_disable_thinking: true
+
+  - name: deepseek-v3
+    provider: openrouter
+    model_id: deepseek/deepseek-chat
+    reasoning: false
+    pair: deepseek
+    price_in: 0.27
+    price_out: 1.10
+
+  # --- Open-weights pair (Qwen) ---------------------------------------------
+  - name: qwen3-thinking
+    provider: openrouter
+    model_id: qwen/qwen3-235b-a22b-thinking-2507
+    reasoning: true
+    pair: qwen
+    price_in: 0.30
+    price_out: 3.00
+    cannot_disable_thinking: true
+
+  - name: qwen3-instruct
+    provider: openrouter
+    model_id: qwen/qwen3-235b-a22b-2507
+    reasoning: false
+    pair: qwen
+    price_in: 0.20
+    price_out: 0.60
+
+# -----------------------------------------------------------------------------
+# API endpoints and the environment variable holding each key (see
+# .env.example). Only openrouter is used for data collection.
+# -----------------------------------------------------------------------------
+providers:
+  openrouter:
+    env_key: OPENROUTER_API_KEY
+    base_url: https://openrouter.ai/api/v1
+  anthropic:
+    env_key: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1
+  openai:
+    env_key: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1

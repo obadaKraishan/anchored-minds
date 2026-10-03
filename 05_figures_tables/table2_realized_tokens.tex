@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{Realized reasoning tokens per call (cell means) against the requested ceiling.}
+\label{tab:tokens}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\hline
+Model & $b=0$ & $b=1{,}024$ & $b=4{,}096$ & $b=8{,}192$ \\
+\hline
+claude-haiku-4.5-thinking & 0 & 437 & 575 & 620 \\
+gpt-5.1-reasoning & 0 & 116 & 118 & 118 \\
+deepseek-r1 & 1,188 & 1,555 & 1,605 & 1,617 \\
+qwen3-thinking & 1,074 & 1,321 & 1,440 & 1,436 \\
+\hline
+\end{tabular}
+\par\smallskip\footnotesize Honoured for Claude; converted to an effort tier for GPT-5.1 (flat consumption); not enforced for DeepSeek-R1 and Qwen3, where 79\% and 52\% of calls exceeded the 1,024 ceiling. The $b=0$ cells for the two no-disable models are the excluded conditions described in the text.
+\end{table}
